@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- bootstrap J.S code -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- font awsome link -->
+
+    <script
+      src="https://kit.fontawesome.com/3ca71944c4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer src="script.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- bootstrap css link -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="landing.html">
+
+    <style>
+      /* universal code rule */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Sen, sans-serif;
+        font-size: 15px;
+      }
+
+      /* header {
+        background: linear-gradient(to right, black 50%, grey 50%);
+
+        padding-bottom: 200px;
+      } */
+      /* header > .navbar {
+        margin: 0;
+        padding: 0;
+      } */
+
+      /* TOP TEXT CODE */
+
+      #top-text {
+        background: linear-gradient(
+          to right,
+          rgba(49, 49, 224, 0.8),
+          rgba(151, 8, 151, 0.8)
+        );
+        color: white;
+        text-align: center !important;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 7px;
+      }
+
+      #top-text:hover {
+        background: linear-gradient(
+          to right,
+          rgba(49, 49, 224, 1),
+          rgba(151, 8, 151, 1)
+        );
+      }
+      #top-text > a {
+        color: white;
+        font-size: 15px;
+        text-align: center !important;
+      }
+
+      /* NAVIGATION LINKS */
+
+      /* nav new */
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 90px;
+        background-color: gray;
+        color: white;
+        position: relative;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links-mobile {
+        display: none;
+
+        & > input:checked ~ ul {
+          display: none;
+        }
+      }
+
+      .nav-links-mobile > ul {
+        position: absolute;
+        top: 90px;
+        left: 0;
+        min-width: 100%;
+        width: 100%;
+        background-color: rgb(44, 43, 43);
+        list-style-type: none;
+        padding: 30px;
+
+        & > li {
+          min-width: 100%;
+          border-block-end: 1px solid #ffffff1f;
+          padding: 8px 8px 15px;
+        }
+
+        & > li > a {
+          width: 100%;
+          text-decoration: none;
+          color: rgba(182, 178, 178, 0.973);
+        }
+      }
+
+      .nav-links > ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 20px;
+        margin-bottom: 0;
+
+        li > a {
+          text-decoration: none;
+          color: white;
+          font-weight: bold;
+        }
+      }
+
+      /*****
+        Mobile Mode
+      ******/
+      @media (width < 768px) {
+        .nav {
+          padding: 30px;
+        }
+        .nav-links {
+          display: flex;
+          align-items: center;
+
+          & > .nav-links-mobile {
+            display: block;
+          }
+
+          & > ul {
+            display: none;
+          }
+        }
+
+        /* hero section */
+
+        #hero-text {
+          padding: 60px 16px;
+        }
+
+        #hero-text > h3,
+        #hero-text > h3 > span {
+          font-size: 32px !important;
+        }
+
+        #Experience {
+          padding: 60px 16px !important;
+        }
+        #Experience > .container-fluid > h4 {
+          font-size: 32px !important;
+        }
+
+        #philo-sect > .container-fluid > .row > #philo-text {
+          padding: 40px 16px !important;
+        }
+
+        #philo-text > h4 {
+          font-size: 32px !important;
+        }
+
+        #skill-sect {
+          padding: 60px 16px !important;
+        }
+
+        #skill-sect > .row > .col > h2 {
+          font-size: 32px !important;
+        }
+        #skill-sect > .row > .col > .row > .col .skill-card > h4 {
+          font-size: 24px !important;
+        }
+
+        #project-sect {
+          padding: 50px 16px !important;
+        }
+
+        #project-sect > .container-fluid > .row > .col > h2 {
+          font-size: 32px !important;
+        }
+        #project-sect > .container-fluid > .row > .col {
+          padding-left: 0 !important ;
+          padding-right: 0 !important ;
+        }
+
+        #philo-text {
+          padding: 50px 16px !important;
+        }
+
+        #philo-text > h4 {
+          font-size: 32px !important;
+          padding-bottom: 16px !important;
+        }
+        #philo-pic {
+          height: 400px !important;
+        }
+
+        #dribble-sect > div {
+          padding: 50px 16px !important;
+        }
+        #dribble-sect > div > div > div > h2 {
+          font-size: 32px !important;
+        }
+        #dribble-sect > .container-fluid > div > .dribble-frame {
+          margin-top: 60px !important;
+        }
+
+        #about-me-sect {
+          padding: 50px 16px !important;
+        }
+
+        #about-me-sect > .container-fluid > .row > .col > .card > .card-body {
+          padding: 32px !important;
+        }
+        #about-me-sect > .container-fluid > .row > .col {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        #sticky-col {
+          position: static !important;
+        }
+
+        #sticky-col > h2 {
+          font-size: 32px !important;
+          padding: 0 16px !important;
+        }
+        #sticky-col > p,
+        #sticky-col > a {
+          padding: 0 16px !important;
+        }
+
+        #photo-sect {
+          padding: 50px 16px !important;
+        }
+        #photo-sect > .container-fluid {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        #photo-sect > .container-fluid > h2 {
+          font-size: 32px !important;
+        }
+
+        #photo-btn-col {
+          display: flex !important;
+          flex-direction: column !important;
+          /* padding-top: 20px !important;
+          padding-bottom: 20px !important; */
+          gap: 20px !important;
+        }
+
+        #form-sect {
+          padding: 50px 16px !important;
+        }
+        #form-sect > .container-fluid > .row > .col {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        #form-text > h2 {
+          font-size: 32px !important;
+        }
+
+        #footer-sect {
+          padding: 50px 16px !important;
+        }
+
+        #footer-sect > .container-fluid > .row > .col {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        #footer-sect > div > div > div > h3 {
+          font-size: 32px !important;
+        }
+      }
+
+      /*****
+       Tablet Mode
+      ******/
+      @media ((width > 768px) and (width < 1024px)) {
+        #Experience {
+          padding: 100px 38px !important;
+        }
+
+        #dribble-sect > div {
+          padding: 0 0 !important;
+        }
+        #dribble-sect > div > div > .mb-4 {
+          padding: 50px 16px !important;
+        }
+
+        #hero-text > h3,
+        #hero-text > h3 > span {
+          font-size: 47px !important;
+        }
+
+        #Experience > .container-fluid > h4 {
+          font-size: 47px !important;
+        }
+
+        /* 766 version swicth
+         */
+
+        #Experience {
+          padding: 80px 30px !important;
+        }
+        #Experience > .container-fluid > h4 {
+          font-size: 47px !important;
+        }
+
+        #philo-sect > .container-fluid > .row > #philo-text {
+          padding: 80px 30px !important;
+        }
+        #philo-text {
+          height: 600px !important;
+        }
+
+        #philo-text > h4 {
+          font-size: 47px !important;
+        }
+
+        #skill-sect {
+          padding: 80px 30px !important;
+        }
+
+        #skill-sect > .row > .col > h2 {
+          font-size: 47px !important;
+        }
+        #skill-sect > .row > .col > .row > .col .skill-card > h4 {
+          font-size: 26px !important;
+        }
+
+        #project-sect {
+          padding: 80px 30px !important;
+        }
+
+        #project-sect > .container-fluid > .row > .col > h2 {
+          font-size: 47px !important;
+        }
+
+        /* !!!!!! i stopped here
+         while trying to adjust the
+          height to fit the content
+
+          updated!!! i targeted the
+           section tag and gave it
+           the same background with
+            the philo-text class*/
+
+        #philo-text {
+          padding: 80px 30px !important;
+          height: 100% !important;
+        }
+
+        #philo-text > h4 {
+          font-size: 47px !important;
+          padding-bottom: 16px !important;
+        }
+        /* #philo-pic {
+          height: 400px !important;
+        } */
+
+        /* #about-me-sect */
+        #about-me-sect {
+          padding: 80px 30px !important;
+        }
+
+        #about-me-sect > .container-fluid > .row > .col > .card > .card-body {
+          padding: 32px !important;
+        }
+
+        #sticky-col > h2 {
+          font-size: 47px !important;
+        }
+
+        /* photo-section */
+
+        #photo-sect > .container-fluid > h2 {
+          font-size: 47px !important;
+        }
+
+        #photo-sect {
+          padding: 80px 30px !important;
+        }
+
+        #form-sect {
+          padding: 80px 30px !important;
+        }
+
+        #form-text > h2 {
+          font-size: 47px !important;
+        }
+
+        #footer-sect {
+          padding: 80px 30px !important;
+        }
+
+        #footer-sect > div > div > div > h3 {
+          font-size: 47px !important;
+        }
+      }
+
+      /* continue */
+      #links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        padding: 50px 0;
+      }
+
+      #links > h4 {
+        padding-left: 90px;
+        font-weight: 800;
+      }
+      #links > h4:hover {
+        text-shadow: 2px 1px 30px white;
+      }
+      #links > ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-right: 90px;
+        gap: 50px;
+      }
+
+      #links > ul > li {
+        list-style: none;
+      }
+      #links > ul > li > a {
+        text-decoration: none;
+        color: rgb(226, 226, 226);
+        cursor: pointer;
+      }
+
+      /* .active-link {
+        background-color: blue;
+        padding: inherit;
+      } */
+
+      /* HERO SECTION */
+
+      #hero-text > h3 {
+        font-size: 55px;
+        color: white;
+        font-weight: 800;
+      }
+      #hero-text > h3 > span {
+        color: rgb(146, 146, 146);
+        font-size: 55px;
+        font-weight: 800;
+      }
+
+      #hero-text > p {
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        padding-top: 17px;
+      }
+
+      /* EXPERIENCE SECTION */
+
+      #Experience {
+        background-color: black;
+        padding: 120px 82px;
+      }
+      #exp-cards {
+        padding-top: 30px;
+      }
+
+      #exp-cards > div > h2 {
+        color: rgb(146, 146, 146);
+        font-size: 100px;
+      }
+      #exp-cards > div > h4,
+      span {
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      /* PHILOSOPHY */
+
+      #philo-pic {
+        padding: 0;
+        margin: 0;
+      }
+
+      /* SKILL SECTION */
+
+      #skill-sect {
+        background-color: black;
+        padding: 120px 82px;
+      }
+
+      .skill-card {
+        margin-bottom: 35px;
+      }
+
+      .skill-card > h4 {
+        font-size: 28px;
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .skill-card > p {
+        color: rgb(146, 146, 146);
+      }
+
+      .skill-card > div > img {
+        padding-bottom: 10px;
+        transform: scale(0.8);
+        transition: transform 0.35s linear;
+      }
+
+      .skill-card:hover img {
+        transform: scale(1);
+      }
+
+      /* DRIBBLE FRAME SECTION */
+
+      .dribble-frame {
+        background-color: rgb(41, 38, 38);
+        height: 30px;
+
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        padding-left: 10px;
+      }
+
+      .dribble-frame > div {
+        width: 12px;
+        height: 12px;
+        border: none;
+        outline: none;
+        border-radius: 100%;
+      }
+
+      .dribble-img {
+        background-image: url("./images/drib-pic.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 500px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      #sticky-col {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.1) 70%,
+          rgba(255, 255, 255, 0)
+        );
+        /* background-image: conic-gradient(
+          rgba(211, 101, 101, 0.322),
+          rgba(21, 149, 158, 0.315),
+          #cd2aee,
+          rgba(86, 11, 207, 0.466),
+          rgba(211, 101, 101, 0.966) 70%
+        ); */
+        left: 0;
+        position: sticky;
+
+        top: 50px;
+        height: 460px;
+        padding: 20px;
+      }
+
+      /* photography section  */
+
+      /* photography button section with flex display */
+
+      #photo-btn-col {
+        display: flex;
+        flex-direction: row;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      #photo-btn-col > .btn-col,
+      #photo-btn-col > .btn-col > button {
+        margin-right: 16px;
+      }
+
+      /* form section */
+
+      /* form-box-section */
+
+      #form-box > form > div > label {
+        font-weight: bold;
+        color: white;
+      }
+
+      /* #floatingTextarea ::placeholder {
+        color: white !important;
+        font-size: 20px;
+      } */
+
+      /* footer section */
+
+      .foot-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .foot-icon > a > img {
+        width: 17px;
+      }
+
+      /* footer-links */
+      #foot-links1 > ul > li,
+      #foot-links2 > ul > li {
+        list-style-type: none;
+        padding: 10px 0;
+      }
+      #foot-links1 > ul > li > a,
+      #foot-links2 > ul > li > a {
+        text-decoration: none;
+        color: white;
+      }
+
+      /* progress bar top of web page */
+
+      .line {
+        position: fixed;
+        top: 0;
+        height: 4px;
+        width: 100%;
+        background-color: #3cc74e;
+        z-index: 1000;
+        animation: myscroll linear;
+        animation-timeline: scroll();
+        transform-origin: left;
+        scale: 0 1;
+      }
+
+      @keyframes myscroll {
+        to {
+          scale: 1 1;
+        }
+      }
+
+      /* Experience section animation */
+
+      /* #exp-cards {
+        animation-name: example;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      @keyframes example {
+        0% {
+          left: -100%;
+        }
+
+        100% {
+          left: 0;
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- ! top text link section -->
+      <nav style="position: fixed; width: 100%; top: 0; z-index: 900">
+        <div class="container-fluid py-2" id="top-text">
+          <div class="line"></div>
+        </div>
+      </nav>
+
+      <nav class="nav">
+        <span>LOGO</span>
+
+        <div class="nav-links">
+          <!-- /mobile button & links  -->
+          <div class="nav-links-mobile">
+            <label for="links">
+              <img src="./svg/menu-alt-right.svg" alt="" />
+            </label>
+            <input type="checkbox" style="display: none" name="" id="links" />
+
+            <ul>
+              <li>
+                <a href="#Experience">Experience</a>
+              </li>
+
+              <li>
+                <a href="#Work">Work</a>
+              </li>
+              <li>
+                <a href="#Photography">Photography</a>
+              </li>
+              <li>
+                <a href="#Contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- desktop links -->
+          <ul>
+            <li>
+              <a href="#Experience">Experience</a>
+            </li>
+            <li>
+              <a href="#Work">Work</a>
+            </li>
+            <li>
+              <a href="#Photography">Photography</a>
+            </li>
+            <li>
+              <a href="#Contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ! HERO SECTION -->
+
+    <section class="container-fluid bg-dark pb-5" id="hero-sect">
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+          <img
+            src="./images/pro-pic.jpg"
+            alt=""
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
+        </div>
+        <div class="col" id="hero-text">
+          <h3>
+            I'm Mahmud Yaro. <br />
+            A Web Developer <br />
+            <span>based in Nigeria.</span>
+          </h3>
+
+          <p>
+            I’m probably the most passionate developer you will ever get to work
+            with. If you have a great project that needs some amazing skills,
+            I’m your guy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--! WORK EXPERIENCE -->
+
+    <section id="Experience">
+      <div class="container-fluid p-0">
+        <h5 style="color: rgb(146, 146, 146)">WORK EXPERIENCE</h5>
+
+        <h4 style="color: white; font-size: 55px; font-weight: bold">
+          Companies I have worked <br />
+          for in the past.
+        </h4>
+
+        <div class="row row-cols-1 row-cols-md-3 text-light" id="exp-cards">
+          <div class="col">
+            <h2 style="color: rgb(146, 146, 146)">01</h2>
+            <h4>
+              <span style="color: #3cc74e">Google</span>, Interaction Designer
+            </h4>
+            <p>
+              I currently am the lead designer on the interaction design team
+              for Google Play.
+            </p>
+          </div>
+
+          <div class="col">
+            <h2>02</h2>
+            <h4>
+              <span style="color: #609bff">Facebook</span>, Product Designer
+            </h4>
+            <p>
+              ’ve worked on a wide variety of internal tools for facebook over
+              the past 6 years.
+            </p>
+          </div>
+
+          <div class="col">
+            <h2>03</h2>
+            <h4>
+              <span style="color: #e95d90">Dribble</span>, Graphic Designer
+            </h4>
+            <p>
+              I started my design career with Dribbble. I was incharge of
+              creating illustrations for the platform.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! PHILOSOPHY SECTION -->
+
+    <section id="philo-sect" style="background-color: #fff3e4">
+      <div class="container-fluid">
+        <div
+          class="row row-cols-1 row-cols-md-2"
+          style="background-color: #fff3e4"
+        >
+          <div
+            class="col"
+            id="philo-text"
+            style="background-color: #fff3e4; padding: 100px 82px"
+          >
+            <h4 style="color: black; font-size: 55px; font-weight: bold">
+              Philosophy & values
+            </h4>
+            <p style="padding-bottom: 70px">
+              I think everyone wants the same thing - relationship with
+              humanity, peace with the metaphysical, and experience with the
+              universe. I try to grasp these things with my values:
+              authenticity, creativity, & hospitality.
+            </p>
+
+            <a href="">More about me</a>
+          </div>
+          <div class="col" id="philo-pic">
+            <img
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 50% 50%;
+              "
+              src="./images/Philo-pic.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! SKILL SET SECTION -->
+
+    <section>
+      <div class="container-fluid text-light" id="skill-sect">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col">
+            <h2
+              style="
+                color: white;
+                font-size: 55px;
+                font-weight: 700;
+                padding-bottom: 10px;
+              "
+            >
+              Skillset
+            </h2>
+            <p style="color: rgb(146, 146, 146)">
+              With skills in over 4 different fields of design, I am the perfect
+              person to hire when it comes to a full fledged project. Whatever
+              your needs are, I can pretty much take on any challenge.
+            </p>
+          </div>
+          <!-- new -->
+          <div class="col">
+            <div class="row row-cols-1 row-cols-md-2">
+              <div class="col">
+                <div class="skill-card">
+                  <div><img src="./svg/prod-svg.svg" alt="" /></div>
+                  <h4>Product Design</h4>
+                  <p>
+                    Working at Facebook has taught me a lot about how to
+                    understand users, solve problems and build great products.
+                  </p>
+                </div>
+
+                <div class="skill-card">
+                  <div><img src="./svg/mot-svg.svg" alt="" /></div>
+                  <h4>Motion Design</h4>
+                  <p>
+                    I started my design journey with motion design in my college
+                    days. Motion is something that really fascinates me because
+                    of the flexibility of story telling.
+                  </p>
+                </div>
+              </div>
+              <div class="col">
+                <div class="skill-card">
+                  <div><img src="./svg/vis-pen-svg.svg" alt="" /></div>
+                  <h4>Visual Design</h4>
+                  <p>
+                    My experience at dribbble has helped me learn to develop the
+                    eye for design. Colors, typography, layout and the whole
+                    package.
+                  </p>
+                </div>
+
+                <div class="skill-card">
+                  <div><img src="./svg/photo-svg.svg" alt="" /></div>
+                  <h4>Photography</h4>
+                  <p>
+                    Clicking pictures really brings out the creative in me.
+                    Phtography really makes you look and percieve things in a
+                    different way.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! PROJECT SECTION -->
+
+    <section
+      style="padding: 120px 82px; background-color: black"
+      id="project-sect"
+    >
+      <div class="container-fluid text-light">
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col">
+            <h6 class="text-secondary">MY PROJECTS</h6>
+            <h2 style="font-size: 55px; font-weight: 700">
+              Work that I’ve done for the past 8 years
+            </h2>
+
+            <!-- image card section for left -->
+
+            <div class="card border-0 mt-5">
+              <img
+                src="./images/laptop.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body bg-dark">
+                <h5 class="card-title">Resturant Web Design</h5>
+                <p class="card-text">
+                  I worked with the guys at CBRE to redesign their entire
+                  website and mobile app fro both Android and iOS. This project
+                  lasted for 4 months and was a very challenging one.
+                </p>
+                <a href="#" class="btn btn-primary">See More >></a>
+              </div>
+            </div>
+
+            <div class="card border-0 mt-5">
+              <img
+                src="./images/charts.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body bg-dark">
+                <h5 class="card-title">Mobile Dashboard</h5>
+                <p class="card-text">
+                  On the of my recent projects was to design a mobile app for an
+                  NGO that aimed at helping people be safe from environmental
+                  hazards.
+                </p>
+                <a href="#" class="btn btn-primary">See More >></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- image card section for right -->
+
+          <div class="col">
+            <div class="card border-0 mt-5">
+              <img
+                src="./images/coin-img.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body bg-dark">
+                <h5 class="card-title">Coin-view Mobile App Design</h5>
+                <p class="card-text">
+                  I was commissioned by Coinview to revamp their mobile app. I
+                  was asked to come up with a brand new design system and
+                  rethink the entire user experience from the ground up.
+                </p>
+                <a href="#" class="btn btn-primary">See More >></a>
+              </div>
+            </div>
+
+            <div class="card border-0 mt-5">
+              <img
+                src="./images/green-box.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body bg-dark">
+                <h5 class="card-title">T-Box Mobile Design</h5>
+                <p class="card-text">
+                  T-Box is an early stage start up in the logistics industry.
+                  The specialise in transportation of tech products all over the
+                  world. I helped them with coming up with a brand identity.
+                </p>
+                <a href="#" class="btn btn-primary">See More >></a>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-lg w-100 mt-5 text-capitalize"
+            >
+              see all project
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! INSTAGRAM  -->
+
+    <section style="background-color: #fff3e4">
+      <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-md-2">
+          <div
+            class="col"
+            id="philo-text"
+            style="background-color: #fff3e4; padding: 80px 72px"
+          >
+            <h4
+              class="text-uppercase"
+              style="color: black; font-size: 45px; font-weight: bold"
+            >
+              Instagram
+            </h4>
+            <p style="padding-bottom: 80px">
+              I think everyone wants the same thing - relationship with
+              humanity, peace with the metaphysical, and experience with the
+              universe. I try to grasp these things with my values:
+              authenticity, creativity, & hospitality.
+            </p>
+
+            <a href="">More about me</a>
+          </div>
+          <div class="col" id="philo-pic">
+            <img
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top left;
+              "
+              src="./images/PLANE.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! DRIBBLE SECTION WITH FIXED PHOTO -->
+
+    <section id="dribble-sect">
+      <div
+        class="container-fluid text-light"
+        style="padding: 82px 150px; background-color: black"
+      >
+        <div>
+          <div class="mb-4">
+            <h2 style="font-size: 55px; font-weight: 800; margin-bottom: 30px">
+              My Dribble
+            </h2>
+            <p
+              style="
+                font-weight: 600;
+                font-size: 17px;
+                color: rgb(146, 146, 146);
+                margin-bottom: 80px;
+              "
+            >
+              Each dribbble shot is made with love and care. Do check out my
+              work on <br />
+              Dribbble. Likes and comments are appreciated.
+            </p>
+
+            <a href="">Follow me on Dribble</a>
+          </div>
+          <div class="dribble-frame">
+            <div style="background-color: red"></div>
+            <div style="background-color: yellow"></div>
+            <div style="background-color: green"></div>
+          </div>
+        </div>
+        <div class="dribble-img"></div>
+      </div>
+    </section>
+
+    <!-- ! WHAT THEY SAY ABOUT ME -->
+
+    <section
+      style="background-color: black; padding: 120px 82px"
+      id="about-me-sect"
+    >
+      <div class="container-fluid text-light">
+        <div
+          class="row row-cols-1 row-cols-md-2"
+          style="background-color: black"
+        >
+          <!-- first col -->
+
+          <div class="col" id="sticky-col">
+            <h2 style="font-size: 45px; font-weight: 800; margin-bottom: 30px">
+              This is what people say <br />
+              about me
+            </h2>
+
+            <p style="color: rgb(146, 146, 146); padding-bottom: 100px">
+              Here are a few lines from people who I have worked with over the
+              past <br />
+              8+ years in my design career.
+            </p>
+
+            <a href="">See all testimonies</a>
+          </div>
+
+          <!-- second col -->
+
+          <div class="col">
+            <!-- 1st About me card -->
+
+            <div class="card border-0">
+              <img
+                src="./images/Testimonial-1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div
+                class="card-body"
+                style="
+                  background-color: black;
+                  border-bottom: 1px solid white;
+                  border-left: 1px solid white;
+                  border-right: 1px solid white;
+                  padding: 50px;
+                "
+              >
+                <p class="card-text fs-4 fw-bold">
+                  ‘’Mahmud is one of the best designers I have worked with in my
+                  entire life. He is a designer who is very capable of taking up
+                  complex projects and delivers impeccable design.’’
+                </p>
+
+                <p class="fs-6 fw-bold pt-5">Al-Amin Muhammad</p>
+                <p class="fs-6 fw-bold">CEO, Company 1</p>
+              </div>
+            </div>
+
+            <!-- 2nd About me card -->
+
+            <div class="card border-0" style="margin-top: 92px">
+              <img
+                src="./images/ceo-2.jpeg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div
+                class="card-body"
+                style="
+                  background-color: black;
+                  border-bottom: 1px solid white;
+                  border-left: 1px solid white;
+                  border-right: 1px solid white;
+                  padding: 50px;
+                "
+              >
+                <p class="card-text fs-4 fw-bold">
+                  ‘’I think Mahmud has an incredible gift. It has been an
+                  absolute pleasure to work with a designer of this caliber.’’
+                </p>
+
+                <p class="fs-6 fw-bold pt-5">Carlton Mc-Derry</p>
+                <p class="fs-6 fw-bold">CEO, Company 2</p>
+              </div>
+            </div>
+
+            <!-- 3rd About me card -->
+
+            <div class="card border-0" style="margin-top: 92px">
+              <img
+                src="./images/ceo-3.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div
+                class="card-body"
+                style="
+                  background-color: black;
+                  border-bottom: 1px solid white;
+                  border-left: 1px solid white;
+                  border-right: 1px solid white;
+                  padding: 50px;
+                "
+              >
+                <p class="card-text fs-4 fw-bold">
+                  ‘’All I can say that, Mahmud is a phenomenal designer. The
+                  wavelength at which he thinks is astoundaing. I love the
+                  focus, passion and attention to detial in the design.’’
+                </p>
+
+                <p class="fs-6 fw-bold pt-5">Musa Musa</p>
+                <p class="fs-6 fw-bold">CEO, Company 3</p>
+              </div>
+            </div>
+
+            <!-- 4th About me card -->
+
+            <div class="card border-0" style="margin-top: 92px">
+              <img
+                src="./images/Testimonial-1.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div
+                class="card-body"
+                style="
+                  background-color: black;
+                  border-bottom: 1px solid white;
+                  border-left: 1px solid white;
+                  border-right: 1px solid white;
+                  padding: 50px;
+                "
+              >
+                <p class="card-text fs-4 fw-bold">
+                  ‘’Mahmud is one of the best designers I have worked with in my
+                  entire life. He is a designer who is very capable of taking up
+                  complex projects and delivers impeccable design.’’
+                </p>
+
+                <p class="fs-6 fw-bold pt-5">Na'eemah Abdulkareem</p>
+                <p class="fs-6 fw-bold">CEO, Company 4</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! PHOTOGRAPHY -->
+
+    <section
+      style="background-color: black; padding: 120px 82px"
+      id="photo-sect"
+    >
+      <div class="container-fluid">
+        <h2 style="font-size: 55px; font-weight: bold; color: white">
+          PHOTOGRAPHY
+        </h2>
+        <p style="font-size: 17px; font-weight: 600">
+          Here is a collection of my best travel pictures that I took while
+          travelling <br />
+          places all around the world.
+        </p>
+
+        <div id="photo-btn-col">
+          <div class="btn-col">
+            <button type="button" class="btn btn-outline-primary">
+              Large button
+            </button>
+
+            <button type="button" class="btn btn-outline-primary">
+              Large button
+            </button>
+          </div>
+          <div class="btn-col">
+            <button type="button" class="btn btn-outline-primary">
+              Large button
+            </button>
+
+            <button type="button" class="btn btn-primary">Large button</button>
+          </div>
+        </div>
+        <div class="row row-cols-2 row-cols-md-4">
+          <div class="col py-3">
+            <img
+              src="./images/tour-pic1.jpeg"
+              alt=""
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top left;
+              "
+            />
+          </div>
+          <div class="col py-3">
+            <img
+              src="./images/tour-pic2.jpeg"
+              alt=""
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top left;
+              "
+            />
+          </div>
+          <div class="col py-3">
+            <img
+              src="./images/tour-pic3.jpeg"
+              alt=""
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top left;
+              "
+            />
+          </div>
+          <div class="col py-3">
+            <img
+              src="./images/tour-pic4.jpeg"
+              alt=""
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top left;
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! FORM SECTION -->
+
+    <section
+      style="background-color: black; padding: 120px 82px"
+      id="form-sect"
+    >
+      <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col" id="form-text">
+            <h2
+              style="
+                font-size: 55px;
+                font-weight: bold;
+                color: white;
+                padding-bottom: 30px;
+              "
+            >
+              Let’s talk business
+            </h2>
+            <p class="text-secondary">
+              Now that you know a lot about me, let me know if you are
+              interested to work with me.
+            </p>
+          </div>
+          <div class="col" id="form-box">
+            <form>
+              <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="text"
+                  class="form-control bg-secondary border-0 text-light"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="mb-4">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control bg-secondary border-0 text-light"
+                  id="exampleInputPassword1"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label for="floatingTextarea" class="form-label"
+                  >Comments</label
+                >
+
+                <textarea
+                  class="form-control bg-secondary border-0 text-light"
+                  placeholder="Leave a comment here"
+                  id="floatingTextarea"
+                  style="width: 100%; height: 150px; min-height: 100px"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ! FOOTER SECTION -->
+
+    <section
+      style="background-color: #181823; padding: 120px 82px"
+      id="footer-sect"
+    >
+      <div class="container-fluid">
+        <div class="row row-cols-1 text-light">
+          <div class="col col-md-6">
+            <h3
+              style="
+                font-size: 55px;
+                font-weight: bold;
+                color: white;
+                padding-bottom: 10px;
+              "
+            >
+              Logo
+            </h3>
+
+            <div class="foot-icon">
+              <a href=""> <img src="./svg/Twitter-icon.svg" alt="" /></a>
+
+              <a href=""> <img src="./svg/Dribbble-icon.svg" alt="" /></a>
+
+              <a href=""> <img src="./svg/LinkedIn-icon.svg" alt="" /></a>
+            </div>
+          </div>
+          <div class="col col-md-3" id="foot-links1">
+            <span style="font-size: 18px; color: #8491a0; padding-left: 10px"
+              >Navigation Links</span
+            >
+            <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Work</a></li>
+              <li><a href="">Process</a></li>
+            </ul>
+          </div>
+          <div class="col col-md-3" id="foot-links2">
+            <span style="font-size: 18px; color: #8491a0; padding-left: 10px"
+              >More Links</span
+            >
+            <ul>
+              <li><a href="">Store</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="">Reading List</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="color: #8491a0; margin-top: 20px">
+          No Copyright 2024 • Mahmud Yaro. 2World cloneable
+        </p>
+
+        <p style="color: #00ffff">Created by 2World Designs</p>
+      </div>
+    </section>
+  </body>
+</html>

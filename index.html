@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- cox icon js -->
+    <script
+      defer
+      src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"
+    ></script>
+
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/3ca71944c4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--  box icon css -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sen:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* universal code */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sen;
+        font-size: 16px;
+      }
+
+      /*  body style */
+
+      body {
+        background-color: #f2fafb;
+        color: #000;
+      }
+
+      /* header and nav section */
+
+      header {
+        width: 100%;
+        z-index: 10;
+      }
+
+      header > nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(98, 149, 230, 0.5);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 100px;
+        padding-left: 82px;
+        padding-right: 82px;
+      }
+
+      header > nav > span {
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      header > nav > ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+      }
+
+      header > nav > ul > li {
+        list-style-type: none;
+      }
+
+      header > nav > ul > li > a {
+        text-decoration: none;
+        cursor: pointer;
+
+        color: #000;
+        font-weight: bold;
+      }
+
+      .mobile-menu,
+      #chk1,
+      #mark-btn {
+        display: none;
+      }
+
+      @media (width < 768px) {
+        /* header section */
+        header > nav > ul {
+          display: none;
+        }
+
+        header > nav {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .mobile-menu > ul {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          background: rgba(98, 149, 230, 0.5);
+          backdrop-filter: blur(10px);
+          height: calc(100vh - 100px);
+          width: 70%;
+          flex-direction: column !important;
+          align-items: flex-start;
+          justify-content: flex-start;
+          transition: right 1s linear;
+          padding: 20px;
+        }
+
+        .mobile-menu > ul > li {
+          list-style-type: none;
+          padding: 20px;
+        }
+
+        .mobile-menu > ul > li > a {
+          text-decoration: none;
+          cursor: pointer;
+
+          color: #000;
+          font-weight: bold;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        #mark-btn {
+          display: block;
+        }
+
+        #mark-btn:hover {
+          color: red;
+        }
+
+        #chk1:checked ~ .mobile-menu > .links-sect {
+          right: 0;
+        }
+
+        /* hero section */
+        .container {
+          display: flex;
+          flex-direction: column !important;
+          padding: 30px 0 !important;
+        }
+
+        .content-text {
+          padding: 30px 16px !important;
+
+          & > h2 {
+            font-size: 32px !important;
+          }
+
+          & > h4 {
+            font-size: 20px !important;
+          }
+        }
+
+        .work-collections {
+          padding: 30px 16px !important;
+          display: flex;
+          flex-direction: column !important;
+          gap: 30px !important;
+        }
+
+        .work-text > ol {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .work-details {
+          display: flex;
+          flex-direction: column !important;
+        }
+      }
+
+      /* Hero container */
+      .container {
+        display: flex;
+        flex-direction: row;
+        padding: 70px 0;
+      }
+
+      /* img container */
+      .container > .img-holder {
+        flex: 1;
+        width: 100%;
+      }
+
+      /* img style */
+      .container > .img-holder > img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* hero text container */
+      .container > .content-text {
+        flex: 1;
+        padding: 0 20px 20px 20px;
+      }
+
+      .content-text > h2 {
+        font-size: 43px;
+        font-weight: bolder;
+        padding-bottom: 30px;
+        color: #484967;
+      }
+
+      .content-text > h4 {
+        margin-bottom: 15px;
+        font-size: 24px;
+      }
+
+      .content-text > p {
+        font-weight: bold;
+        line-height: 1.7;
+      }
+
+      /* section 2 - project area */
+      .work-collections {
+        padding: 100px 82px;
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+      }
+
+      /* work text sect */
+      .work-collections > .work-text {
+        flex: 1;
+      }
+
+      .work-collections > .work-text > h2 {
+        font-size: 55px;
+        font-weight: bold;
+        color: #484967;
+        margin-bottom: 28px;
+      }
+
+      .work-collections > .work-text > h4 {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .work-collections > .work-text > ol > li {
+        list-style-type: number;
+        padding: 5px 0;
+        font-weight: bold;
+      }
+
+      /* work detail card */
+      .work-collections > .work-details {
+        flex: 2;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .detail-card {
+        margin-bottom: 30px;
+      }
+
+      .detail-card {
+        padding-bottom: 18px;
+      }
+
+      .detail-card > p {
+        margin-bottom: 20px;
+      }
+
+      .detail-card > h5 > i {
+        color: #484967;
+        font-size: 16px;
+      }
+
+      .work-collections
+        > .work-details
+        > .work-detail-card
+        > .detail-card
+        > h5 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 4px;
+        justify-content: flex-start;
+        align-items: center;
+        color: #484967;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <span>Solid: Roots;</span>
+
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Forum</a></li>
+          <li><a href="">About</a></li>
+        </ul>
+
+        <input type="checkbox" name="" id="chk1" />
+        <div class="mobile-menu">
+          <label for="chk1" class="menu" style="font-size: 30px">
+            <i
+              class="fa-solid fa-bars-staggered"
+              style="font-size: 20px; font-weight: bold"
+            ></i>
+          </label>
+
+          <ul class="links-sect">
+            <label for="chk1"
+              ><i class="fa-solid fa-xmark" id="mark-btn"></i>
+            </label>
+            <li><a href="">Home</a></li>
+            <li><a href="">Forum</a></li>
+            <li><a href="">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <div class="container">
+        <div class="img-holder">
+          <img src="./pro-pic.jpg" alt="my profile picture" />
+        </div>
+
+        <div class="content-text">
+          <h2>Adventures of a web developer</h2>
+          <h4>Salaam, and in other words Hello.</h4>
+          <p>
+            My name is Muhammad Mahmud Yaro, i recently just started learning
+            full stack Web Development (currently on the front-end) and truly i
+            must say that embarking on my web development journey has been
+            nothing short of exhilarating! Every line of code brings new
+            challenges and endless opportunities to create something impactful.
+            From learning the basics to building dynamic, interactive web
+            applications, I've gained skills that make each project more
+            rewarding than the last. Watching ideas transform from concepts to
+            fully functional platforms has been an incredible experience,
+            fueling my passion to innovate and solve real-world problems. I
+            can't wait to see where this journey takes me next!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="work-collections">
+        <div class="work-text">
+          <h2>Projects</h2>
+
+          <h4>Web pages i have designed</h4>
+
+          <ol>
+            <li>My Portfolio Page</li>
+            <li>Clone of an E-commerce Page</li>
+            <li>Form page</li>
+          </ol>
+        </div>
+
+        <div class="work-details">
+          <div class="work-detail-card">
+            <div class="detail-card">
+              <h5>
+                <i class="fa-solid fa-briefcase"></i>
+                My Portfolio page
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+                at est delectus, quam consectetur molestiae labore. Assumenda,
+                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
+                sapiente facilis reiciendis.
+              </p>
+
+              <a
+                href="./portfolio_Project/index.html"
+                style="
+                  color: black;
+                  text-decoration: none;
+                  border-bottom: 1px solid black;
+                  padding-bottom: 10px;
+                "
+              >
+                see portfolio</a
+              >
+            </div>
+            <div class="detail-card">
+              <h5>
+                <i class="fa-solid fa-cart-shopping"></i>
+                Clone of an E-commerce Page
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+                at est delectus, quam consectetur molestiae labore. Assumenda,
+                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
+                sapiente facilis reiciendis.
+              </p>
+            </div>
+          </div>
+          <div class="work-detail-card">
+            <div class="detail-card">
+              <h5>
+                <i class="fa-solid fa-list-check"></i>
+                Form page
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+                at est delectus, quam consectetur molestiae labore. Assumenda,
+                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
+                sapiente facilis reiciendis.
+              </p>
+            </div>
+            <div class="detail-card">
+              <h5>
+                <i class="fa-solid fa-briefcase"></i>
+                My Portfolio page
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+                at est delectus, quam consectetur molestiae labore. Assumenda,
+                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
+                sapiente facilis reiciendis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      style="
+        background-color: rgb(98, 149, 230);
+        height: 100px;
+        padding-top: 50px;
+      "
+    >
+      <p style="text-align: center">2024 Copyrights © Solid: Roots;</p>
+    </footer>
+  </body>
+</html>
