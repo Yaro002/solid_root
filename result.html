@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      defer
+      src="https://kit.fontawesome.com/3ca71944c4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sen:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 16px;
+      }
+
+      /** parent container */
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+        margin: auto;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+      }
+
+      /* first parent child */
+
+      .container .result-overview {
+        max-width: 300px;
+        width: 100%;
+        background: linear-gradient(
+          to bottom,
+          hsl(252, 100%, 67%),
+          hsl(241, 81%, 54%)
+        );
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* first parent heading */
+      .container .result-overview > h4 {
+        font-size: 15px;
+        text-transform: capitalize;
+        color: lightgray;
+        margin-bottom: 25px;
+      }
+
+      /* score board */
+
+      .score-board {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        height: 140px;
+        width: 140px;
+        background: linear-gradient(
+          to bottom,
+          hsla(256, 72%, 46%, 1),
+          hsla(241, 72%, 46%, 0)
+        );
+        color: hsl(0, 0%, 100%);
+        padding: 30px;
+      }
+
+      .score-board > p:first-child {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      .score-board > p:last-child {
+        color: lightgrey;
+        font-size: 12px;
+      }
+
+      /* first child remarks */
+
+      .remarks {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: hsl(0, 0%, 100%);
+      }
+      .remarks > h4 {
+        font-size: 18px;
+        text-transform: capitalize;
+
+        margin-bottom: 16px;
+      }
+      .remarks > p {
+        color: lightgrey;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      /*  */
+      /*  */
+
+      /*  second parent child */
+
+      .result-summary {
+        max-width: 300px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 0 20px 20px 0;
+      }
+      .result-summary > h4 {
+        font-size: 15px;
+        text-transform: capitalize;
+
+        margin-bottom: 18px;
+      }
+
+      .sum-ctn {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .summary1,
+      .summary2,
+      .summary3,
+      .summary4 {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: capitalize;
+        font-size: 12px;
+        font-weight: 600;
+        height: 40px;
+      }
+
+      .summary1,
+      .summary2,
+      .summary3,
+      .summary4 {
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      /* summary 1 */
+      .summary1 {
+        background-color: hsla(0, 100%, 67%, 0.1);
+        border: 1px solid hsla(0, 100%, 67%, 0.15);
+
+        color: hsl(0, 100%, 67%);
+      }
+
+      /* summary 2 */
+
+      .summary2 {
+        background-color: hsla(39, 100%, 56%, 0.1);
+        border: 1px solid hsla(39, 100%, 56%, 0.15);
+
+        color: hsl(39, 100%, 56%);
+      }
+
+      /* summary 3 */
+
+      .summary3 {
+        background-color: hsla(166, 100%, 37%, 0.1);
+        border: 1px solid hsla(166, 100%, 37%, 0.15);
+
+        color: hsl(166, 100%, 37%);
+      }
+      /* summary 4*/
+
+      .summary4 {
+        background-color: hsla(234, 85%, 45%, 0.1);
+        border: 1px solid hsla(234, 85%, 45%, 0.15);
+
+        color: hsl(234, 85%, 45%);
+      }
+      .summary1 > p:last-child,
+      .summary2 > p:last-child,
+      .summary3 > p:last-child,
+      .summary4 > p:last-child {
+        color: black;
+      }
+      .summary1 > p:last-child > span,
+      .summary2 > p:last-child > span,
+      .summary3 > p:last-child > span,
+      .summary4 > p:last-child > span {
+        color: gray;
+      }
+      button {
+        width: 100%;
+        background: linear-gradient(
+          to bottom,
+          hsl(252, 100%, 67%),
+          hsl(241, 81%, 54%)
+        );
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        padding: 13px;
+        color: hsl(0, 0%, 100%);
+        font-size: 13px;
+      }
+
+      i {
+        margin-right: 5px;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 0;
+        }
+        .container {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          border-radius: none;
+          max-width: 450px;
+          box-shadow: none;
+        }
+
+        .result-overview {
+          border-radius: 0 0 20px 20px !important;
+          max-width: 450px !important;
+        }
+
+        .result-summary {
+          max-width: 450px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="result-overview">
+        <h4>your result</h4>
+        <div class="score-board">
+          <p>76</p>
+          <p>of 100</p>
+        </div>
+
+        <div class="remarks">
+          <h4>Great</h4>
+          <p>
+            Your score is higher that 65% <br />
+            of the people who have taken <br />
+            these test
+          </p>
+        </div>
+      </div>
+
+      <div class="result-summary">
+        <h4>Summary</h4>
+        <div class="sum-ctn">
+          <div class="summary1">
+            <p><i class="fa-solid fa-bolt"></i> reaction</p>
+            <p>80 <span> / 100</span></p>
+          </div>
+          <div class="summary2">
+            <p><i class="fa-solid fa-brain"></i> memory</p>
+            <p>92 <span> / 100</span></p>
+          </div>
+          <div class="summary3">
+            <p><i class="fa-regular fa-comment-dots"></i> verbal</p>
+            <p>61 <span> / 100</span></p>
+          </div>
+          <div class="summary4">
+            <p><i class="fa-regular fa-eye"></i> visual</p>
+            <p>72 <span> / 100</span></p>
+          </div>
+        </div>
+
+        <button>continue</button>
+      </div>
+    </div>
+  </body>
+</html>

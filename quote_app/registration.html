@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      defer
+      src="https://kit.fontawesome.com/3ca71944c4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quote generator login page</title>
+
+    <style>
+      /* universal styling */
+
+      *,
+      *::before,
+      *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #f5f8f9;
+        --secondary-color1: #fb4b4a;
+        --dark-opacity: rgba(0, 0, 0, 0.081);
+        --dark-text: black;
+        --light-text: white;
+        --link-color: blue;
+      }
+
+      /* body style */
+
+      body {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 16px;
+        width: 100%;
+        padding-top: 30px;
+        background-color: var(--primary-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /*** parent container ***/
+
+      .container {
+        width: 90%;
+        max-width: 550px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        box-shadow: 0 0 10px var(--dark-opacity);
+        text-align: center;
+        padding: 20px;
+        background-color: var(--light-text);
+        animation: fadeIn 0.7s ease-in-out;
+      }
+
+      /* parent form */
+
+      .container > form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      /* input style
+       */
+      .container > form > label {
+        margin-top: 20px;
+      }
+
+      .container > form > input {
+        width: 100%;
+        height: 38px;
+        padding: 10px;
+        border: 1px solid var(--dark-opacity);
+        outline: none;
+        box-shadow: 0 0 10px var(--dark-opacity);
+        background-color: var(--primary-color);
+      }
+
+      .container > form > #psw2 {
+        margin-bottom: 0;
+      }
+
+      /* progress bar for password strength below password 1*/
+
+      .progress-bar-container {
+        width: 100%;
+        height: 3px;
+        background-color: #e0e0e0;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+
+      #progress-bar {
+        height: 100%;
+        width: 0%;
+        background-color: red;
+        /* Initial color is red (weak) */
+        border-radius: 5px;
+        transition: width 0.3s, background-color 0.3s;
+        /* Smooth transition for feedback */
+      }
+
+      /* icons */
+      .fa-solid {
+        color: var(--secondary-color1);
+        font-size: 16px;
+      }
+
+      /* form heading */
+      .container > form > h3 {
+        font-size: 37px;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 25px;
+        background: linear-gradient(
+          to right,
+          var(--secondary-color1) 20%,
+          var(--light-text) 40%,
+          var(--light-text) 40%
+        );
+        color: var(--secondary-color1);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+
+        .container > form > h3 {
+          font-size: 25px;
+        }
+      }
+
+      #reg-btn {
+        margin-top: 15px;
+        box-shadow: none;
+        font-family: "Courier New", Courier, monospace;
+        font-size: medium;
+        transition: all 0.3s linear;
+        color: var(--secondary-color1);
+        cursor: pointer;
+        animation: fadeIn 0.9s ease-in-out;
+      }
+
+      #reg-btn:hover {
+        box-shadow: 0 0 10px var(--dark-opacity);
+        background-color: var(--secondary-color1);
+        color: var(--light-text);
+        letter-spacing: 3px;
+      }
+
+      #member {
+        text-align: center;
+        width: 100%;
+      }
+
+      #member > a {
+        cursor: pointer;
+      }
+
+      /*  */
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form action="" class="registrationForm">
+        <h3><span style="color: var(--light-text)">Regist</span>ration Form</h3>
+        <label for=""
+          ><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Name</label
+        >
+
+        <input type="text" name="" value="" id="name" required />
+
+        <label for=""
+          ><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
+          Address</label
+        >
+
+        <input type="email" name="" value="" id="email" required />
+
+        <label for=""
+          ><i class="fa-solid fa-lock" aria-hidden="true"></i> Password</label
+        >
+
+        <input
+          type="password"
+          name=""
+          value=""
+          id="psw1"
+          minlength="8"
+          required
+        />
+        <!-- progress bar for passowrd strength -->
+
+        <div class="progress-bar-container">
+          <div id="progress-bar"></div>
+        </div>
+        <p
+          id="strength-text"
+          style="text-align: center; margin-top: 2px; font-size: 13px"
+        ></p>
+
+        <label for=""><i class="fa-solid fa-lock"></i> Confirm Password</label>
+
+        <input
+          type="password"
+          name=""
+          value=""
+          id="psw2"
+          minlength="8"
+          required
+        />
+
+        <input type="submit" value="Register" id="reg-btn" />
+
+        <p id="member">Already a member? <a href="./index.html">Login</a></p>
+      </form>
+    </div>
+
+    <script>
+      /**
+           form validation
+         */
+
+      // Reference DOM elements
+
+      const username = document.querySelector("#name");
+      const email = document.querySelector("#email");
+      const password1 = document.querySelector("#psw1");
+      const password2 = document.querySelector("#psw2");
+      const submit = document.querySelector("#reg-btn");
+
+      // password strength feedback message
+      const progressBar = document.querySelector("#progress-bar");
+      const strengthText = document.querySelector("#strength-text");
+
+      // Password strength checker
+
+      password1.addEventListener("input", () => {
+        const password = password1.value;
+
+        let strength = 0;
+
+        // Check if password length is at least 8 characters first
+        if (password.length >= 8) {
+          strength++; // Length check
+        }
+
+        // Check for uppercase letter (A-Z)
+        if (/[A-Z]/.test(password)) {
+          strength++; // Uppercase letter check
+        }
+
+        // Check for lowercase letter (a-z)
+        if (/[a-z]/.test(password)) {
+          strength++; // Lowercase letter check
+        }
+
+        // Check for number (0-9)
+        if (/[0-9]/.test(password)) {
+          strength++; // Number check
+        }
+
+        // Check for special character
+        if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+          strength++; // Special character check
+        }
+
+        // Update progress bar and text based on strength
+        const strengthLevels = ["Weak", "Medium", "Strong"];
+        const colors = ["red", "orange", "green"];
+        const widths = ["20%", "60%", "100%"];
+
+        if (strength === 0) {
+          progressBar.style.width = "0%";
+          progressBar.style.backgroundColor = "red";
+          strengthText.textContent = "Weak";
+        } else {
+          // Ensure strength is within the range of 1-3
+          const index = Math.min(strength - 1, 2);
+          progressBar.style.width = widths[index];
+          progressBar.style.backgroundColor = colors[index];
+          strengthText.textContent = strengthLevels[index];
+        }
+      });
+
+      // Form submit event listener
+      submit.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent form submission
+
+        // Validate name length
+        if (username.value.length < 3) {
+          alert("Name must be at least 3 characters!");
+          return;
+        }
+
+        // Check if the email is already registered
+        if (localStorage.getItem(email.value)) {
+          alert("This email is already registered!");
+          return;
+        }
+
+        // Validate password
+        const passwordCheck =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+        if (!passwordCheck.test(password1.value)) {
+          alert(
+            "Password must contain at least 8 characters, including uppercase and lowercase letters, numbers, and special characters."
+          );
+          return;
+        }
+
+        if (password1.value !== password2.value) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        // Store user data in local storage
+        const user = {
+          username: username.value,
+          email: email.value,
+          password1: password1.value, // In a real-world app, don't store passwords in plain text!
+        };
+
+        localStorage.setItem(email.value, JSON.stringify(user));
+
+        alert("Your account has been created successfully!");
+        window.location = "./quote.html"; // Redirect to quote generator
+      });
+
+      //
+      //
+      //
+    </script>
+  </body>
+</html>
