@@ -29,10 +29,61 @@
     <section class="bg-cover">
       <!-- ! header section with icon and nav bar below it -->
       <header>
-        <!-- icon section -->
+        <!-- icon container -->
         <div class="icon-ctn">
           <!-- menu bar -->
-          <div class="menu-bar"><i class="fa-solid fa-bars-staggered"></i></div>
+          <input type="checkbox" name="" id="chk" />
+          <div class="menu-bar">
+            <label for="chk">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </label>
+          </div>
+
+          <!-- menu bar navigation -->
+
+          <div class="hidden-nav">
+            <div class="close-bar">
+              <label for="chk">
+                <i class="fa-solid fa-xmark"></i>
+              </label>
+            </div>
+
+            <div class="nav-search-bar">
+              <form action="#" class="nav-form">
+                <input type="search" name="" id="#src" placeholder="Search" />
+                <button type="submit">Search</button>
+              </form>
+            </div>
+
+            <nav class="contents">
+              <ul>
+                <li><a href="">fashion</a></li>
+                <li><a href="">electronics</a></li>
+                <li><a href="">health/medical equipment</a></li>
+                <li><a href="">laptops and desktops</a></li>
+                <li><a href="">phone and tables</a></li>
+                <li><a href="">Mobile accesserires</a></li>
+                <li><a href="">educational</a></li>
+                <li><a href="">office equipment</a></li>
+                <li><a href="">fashion</a></li>
+                <li><a href="">electronics</a></li>
+                <li><a href="">health/medical equipment</a></li>
+                <li><a href="">laptops and desktops</a></li>
+                <li><a href="">phone and tables</a></li>
+                <li><a href="">Mobile accesserires</a></li>
+                <li><a href="">educational</a></li>
+                <li><a href="">office equipment</a></li>
+                <li><a href="">fashion</a></li>
+                <li><a href="">electronics</a></li>
+                <li><a href="">health/medical equipment</a></li>
+                <li><a href="">laptops and desktops</a></li>
+                <li><a href="">phone and tables</a></li>
+                <li><a href="">Mobile accesserires</a></li>
+                <li><a href="">educational</a></li>
+                <li><a href="">office equipment</a></li>
+              </ul>
+            </nav>
+          </div>
 
           <!-- icon section -->
 
@@ -262,6 +313,124 @@
           <!-- * end of second card -->
         </div>
       </section>
+
+      <!-- footer section -->
+      <footer>
+        <div class="footer-container">
+          <h3>Gloria Trends</h3>
+          <div class="foot-nav-box">
+            <div class="foot-nav-contents">
+              <h6 class="foot-header">Navigation</h6>
+
+              <nav class="foot-nav">
+                <ul>
+                  <li><a href="">home</a></li>
+                  <li><a href="">about</a></li>
+                  <li><a href="">contacts</a></li>
+                  <li><a href="">terms</a></li>
+                  <li><a href="">privacy</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="foot-nav-contents">
+              <h6 class="foot-header">Sales</h6>
+
+              <nav class="foot-nav">
+                <ul>
+                  <li><a href="">best deals</a></li>
+                  <li><a href="">trending</a></li>
+                  <li><a href="">discount sales</a></li>
+                  <li><a href="">pic-small-small</a></li>
+                  <li><a href="">bulk and combo deals</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="foot-nav-contents">
+              <h6 class="foot-header">products</h6>
+
+              <nav class="foot-nav">
+                <ul>
+                  <li><a href="">fashion</a></li>
+                  <li><a href="">electronics</a></li>
+                  <li><a href="">health/medical equipment</a></li>
+                  <li><a href="">laptops and desktops</a></li>
+                  <li><a href="">phone and tables</a></li>
+                  <li><a href="">Mobile accesserires</a></li>
+                  <li><a href="">educational</a></li>
+                  <li><a href="">office equipment</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="foot-nav-contents">
+              <h6 class="foot-header">Other deals</h6>
+
+              <nav class="foot-nav">
+                <ul>
+                  <li><a href="">Reseller deal</a></li>
+                  <li><a href="">careers</a></li>
+                  <li><a href="">deliveries</a></li>
+                  <li><a href="">pick up stations</a></li>
+                  <li><a href="">privacy</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="contacts">
+            <div class="foot-nav-contents">
+              <h6 class="foot-header">contatcs</h6>
+
+              <nav class="foot-nav">
+                <ul>
+                  <li><a href="">08066652987</a></li>
+                  <li><a href="">email@example.com</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="foot-src">
+            <div class="foot-icons">
+              <a href=""><i class="fa-brands fa-facebook"></i></a>
+              <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+              <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+
+            <form action="">
+              <input type="search" name="" id="" />
+              <button type="submit">Subscribe</button>
+            </form>
+
+            <div class="copyright">copyright ©2024</div>
+          </div>
+        </div>
+      </footer>
     </section>
+
+    <!-- js codes -->
+
+    <script>
+      // Get the nav-section element
+      const navSection = document.querySelector(".nav-section");
+
+      // Get the offset position of the nav-section
+      const stickyOffset = navSection.offsetTop;
+
+      // Function to add/remove the sticky class based on scroll position
+      function handleScroll() {
+        if (window.scrollY > stickyOffset) {
+          navSection.classList.add("sticky"); // Add the sticky class when scrolled past
+        } else {
+          navSection.classList.remove("sticky"); // Remove the sticky class when above
+        }
+      }
+
+      // Listen for the scroll event
+      window.addEventListener("scroll", handleScroll);
+    </script>
   </body>
 </html>

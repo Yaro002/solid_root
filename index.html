@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- cox icon js -->
-    <script
-      defer
-      src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"
-    ></script>
-
     <!-- font awesome -->
     <script
+      defer
       src="https://kit.fontawesome.com/3ca71944c4.js"
       crossorigin="anonymous"
     ></script>
@@ -31,7 +26,9 @@
 
     <style>
       /* universal code */
-      * {
+      *,
+      *::before,
+      *::after {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
@@ -39,18 +36,30 @@
         font-size: 16px;
       }
 
+      :root {
+        --bg-col: #f2fafb;
+
+        --text-col: black;
+        /*  */
+      }
+
+      .darkmode,
+      .darkModeMob {
+        --bg-col: black;
+        --text-col: white;
+      }
+
       /*  body style */
 
       body {
-        background-color: #f2fafb;
-        color: #000;
+        background-color: var(--bg-col);
+        color: var(--text-col);
       }
 
       /* header and nav section */
 
       header {
         width: 100%;
-        z-index: 10;
       }
 
       header > nav {
@@ -58,8 +67,8 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background-color: rgba(98, 149, 230, 0.5);
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+        background-color: rgb(98, 149, 230);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
         width: 100%;
         height: 100px;
         padding-left: 82px;
@@ -67,9 +76,46 @@
       }
 
       header > nav > span {
+        color: white;
         font-size: 28px;
         font-weight: bold;
-        text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      /* toggle button for theme change */
+
+      .theme-toggle,
+      .theme-toggle-m {
+        display: inline-block;
+        padding: 8px;
+        border-radius: 50%;
+        background-color: var(--bg-col);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        border: none;
+        outline: none;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        z-index: 2;
+      }
+
+      .theme-toggle > svg,
+      .theme-toggle-m > svg {
+        fill: var(--text-col);
+      }
+      .theme-toggle > svg:last-child,
+      .theme-toggle-m > svg:last-child {
+        display: none;
+      }
+
+      .darkmode .theme-toggle > svg:first-child,
+      .darkModeMob .theme-toggle-m > svg:first-child {
+        display: none;
+      }
+      .darkmode .theme-toggle > svg:last-child,
+      .darkModeMob .theme-toggle-m > svg:last-child {
+        display: block;
       }
 
       header > nav > ul {
@@ -85,10 +131,10 @@
       }
 
       header > nav > ul > li > a {
+        color: white;
         text-decoration: none;
         cursor: pointer;
 
-        color: #000;
         font-weight: bold;
       }
 
@@ -98,17 +144,69 @@
         display: none;
       }
 
-      @media (width < 768px) {
+      @media ((width > 758px) and (width < 1300px)) {
+        header > nav {
+          padding-left: 30px !important;
+          padding-right: 30px !important;
+        }
+        .work-collections {
+          padding: 30px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 30px !important;
+        }
+
+        .work-details {
+          display: flex !important;
+          flex-direction: row !important;
+        }
+      }
+
+      @media (width < 758px) {
         /* header section */
+
+        .mobile-menu.fixed {
+          position: fixed;
+          top: 20px;
+          right: 20px; /* Move it to the right side */
+          width: auto; /* Optionally adjust width if needed */
+          z-index: 1000; /* Ensure it stays above other content */
+        }
+
         header > nav > ul {
           display: none;
         }
 
         header > nav {
-          padding-left: 16px;
-          padding-right: 16px;
+          padding-left: 20px;
+          padding-right: 20px;
+          background-color: var(--bg-col);
+          box-shadow: none;
+          color: var(--text-col);
+        }
+        header > nav > span {
+          color: var(--text-col);
+          text-shadow: none;
         }
 
+        .mobile-menu {
+          /* Your initial styles for the mobile menu */
+          position: relative; /* This ensures the element moves with the scroll initially */
+          transition: all 0.3s ease; /* Optional, to add a smooth transition */
+        }
+
+        .mobile-menu .menu {
+          color: var(--text-col);
+          background-color: rgb(98, 149, 230);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 40px;
+          width: 40px;
+
+          border-radius: 50%;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
         .mobile-menu > ul {
           position: fixed;
           top: 0;
@@ -133,7 +231,7 @@
           text-decoration: none;
           cursor: pointer;
 
-          color: #000;
+          color: var(--text-col);
           font-weight: bold;
         }
 
@@ -151,6 +249,13 @@
 
         #chk1:checked ~ .mobile-menu > .links-sect {
           right: 0;
+        }
+
+        .links-sect > label {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
         }
 
         /* hero section */
@@ -174,7 +279,7 @@
 
         .work-collections {
           padding: 30px 16px !important;
-          display: flex;
+          display: flex !important;
           flex-direction: column !important;
           gap: 30px !important;
         }
@@ -316,6 +421,36 @@
           <li><a href="">Home</a></li>
           <li><a href="">Forum</a></li>
           <li><a href="">About</a></li>
+          <button class="theme-toggle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="19px"
+              viewBox="0 -960 960 960"
+              width="19px"
+              fill="#5f6368"
+            >
+              <path
+                d="M480-120q-150 0-255-105T120-480q0-150
+           105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63
+            153t153 63q55 0 101-24.5t75-65.5q2 13 3
+           26.5t1 27.5q0 150-105 255T480-120Z"
+              />
+            </svg>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="19px"
+              viewBox="0 -960 960 960"
+              width="19px"
+              fill="#5f6368"
+            >
+              <path
+                d="M480-280q-83
+             0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 
+             0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"
+              />
+            </svg>
+          </button>
         </ul>
 
         <input type="checkbox" name="" id="chk1" />
@@ -330,6 +465,37 @@
           <ul class="links-sect">
             <label for="chk1"
               ><i class="fa-solid fa-xmark" id="mark-btn"></i>
+
+              <button class="theme-toggle-m">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="19px"
+                  viewBox="0 -960 960 960"
+                  width="19px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-120q-150 0-255-105T120-480q0-150
+           105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63
+            153t153 63q55 0 101-24.5t75-65.5q2 13 3
+           26.5t1 27.5q0 150-105 255T480-120Z"
+                  />
+                </svg>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="19px"
+                  viewBox="0 -960 960 960"
+                  width="19px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M480-280q-83
+             0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 
+             0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"
+                  />
+                </svg>
+              </button>
             </label>
             <li><a href="">Home</a></li>
             <li><a href="">Forum</a></li>
@@ -373,6 +539,8 @@
 
           <ol>
             <li>My Portfolio Page</li>
+            <li>My Quote Generator Page</li>
+            <li>My Result Page</li>
             <li>Clone of an E-commerce Page</li>
             <li>Form page</li>
           </ol>
@@ -395,9 +563,9 @@
               <a
                 href="./portfolio_Project/index.html"
                 style="
-                  color: black;
+                  color: var(--text-col);
                   text-decoration: none;
-                  border-bottom: 1px solid black;
+                  border-bottom: 1px solid var(--text-col);
                   padding-bottom: 10px;
                 "
               >
@@ -420,9 +588,9 @@
               <a
                 href="./quote_app/index.html"
                 style="
-                  color: black;
+                  color: var(--text-col);
                   text-decoration: none;
-                  border-bottom: 1px solid black;
+                  border-bottom: 1px solid var(--text-col);
                   padding-bottom: 10px;
                 "
               >
@@ -441,9 +609,9 @@
               <a
                 href="./result.html"
                 style="
-                  color: black;
+                  color: var(--text-col);
                   text-decoration: none;
-                  border-bottom: 1px solid black;
+                  border-bottom: 1px solid var(--text-col);
                   padding-bottom: 10px;
                 "
               >
@@ -465,11 +633,11 @@
               </p>
 
               <a
-                href="#"
+                href="./web development/index.html"
                 style="
-                  color: black;
+                  color: var(--text-col);
                   text-decoration: none;
-                  border-bottom: 1px solid black;
+                  border-bottom: 1px solid var(--text-col);
                   padding-bottom: 10px;
                 "
               >
@@ -490,9 +658,9 @@
               <a
                 href="./form.html"
                 style="
-                  color: black;
+                  color: var(--text-col);
                   text-decoration: none;
-                  border-bottom: 1px solid black;
+                  border-bottom: 1px solid var(--text-col);
                   padding-bottom: 10px;
                 "
               >
@@ -511,11 +679,11 @@
                 sapiente facilis reiciendis.
               </p>
               <a
-                href="#"
+                href="./portfolio_Project/index.html"
                 style="
-                  color: black;
+                  color: var(--text-col);
                   text-decoration: none;
-                  border-bottom: 1px solid black;
+                  border-bottom: 1px solid var(--text-col);
                   padding-bottom: 10px;
                 "
               >
@@ -536,5 +704,83 @@
     >
       <p style="text-align: center">2024 Copyrights © Solid: Roots;</p>
     </footer>
+
+    <script>
+      // /**
+      //   toggle effect for dark and light theme
+      // */
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Select the theme toggle buttons
+        const themeToggle = document.querySelector(".theme-toggle");
+        const themeToggleMobile = document.querySelector(".theme-toggle-m");
+        const body = document.body;
+
+        // Function to toggle dark and light mode
+        function toggleTheme() {
+          body.classList.toggle("darkmode");
+          body.classList.toggle("darkModeMob");
+        }
+
+        // Add event listeners for the toggle buttons
+        themeToggle.addEventListener("click", toggleTheme);
+        themeToggleMobile.addEventListener("click", toggleTheme);
+
+        // Check if a theme preference is already saved in localStorage
+        if (localStorage.getItem("theme") === "dark") {
+          body.classList.add("darkmode");
+          body.classList.add("darkModeMob");
+        } else {
+          body.classList.remove("darkmode");
+          body.classList.remove("darkModeMob");
+        }
+
+        // Save the theme preference to localStorage
+        themeToggle.addEventListener("click", function () {
+          if (body.classList.contains("darkmode")) {
+            localStorage.setItem("theme", "dark");
+          } else {
+            localStorage.setItem("theme", "light");
+          }
+        });
+
+        themeToggleMobile.addEventListener("click", function () {
+          if (body.classList.contains("darkmode")) {
+            localStorage.setItem("theme", "dark");
+          } else {
+            localStorage.setItem("theme", "light");
+          }
+        });
+      });
+
+      //
+      //
+      //
+      // Select the mobile menu
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      // Function to handle the scroll event
+      function handleScroll() {
+        // Check if the screen width is less than 768px (adjust to your needs)
+        if (window.innerWidth <= 768) {
+          const menuPosition = mobileMenu.offsetTop; // Get the distance from the top
+          const scrollPosition = window.scrollY; // Get the current scroll position
+
+          if (scrollPosition > menuPosition) {
+            // If the scroll position is past the menu, make it fixed
+            mobileMenu.classList.add("fixed");
+          } else {
+            // Otherwise, remove the fixed class
+            mobileMenu.classList.remove("fixed");
+          }
+        } else {
+          // If screen width is larger than 768px, remove the fixed class
+          mobileMenu.classList.remove("fixed");
+        }
+      }
+
+      // Add the scroll event listener
+      window.addEventListener("scroll", handleScroll);
+    </script>
   </body>
 </html>
