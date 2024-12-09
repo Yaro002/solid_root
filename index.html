@@ -120,6 +120,7 @@
       .theme-toggle > svg,
       .theme-toggle-m > svg {
         fill: var(--text-col);
+        width: 20px;
       }
       .theme-toggle > svg:last-child,
       .theme-toggle-m > svg:last-child {
@@ -165,11 +166,17 @@
         header > nav {
           padding-inline: 34px !important;
         }
+        #project > h2 {
+          padding-inline: 30px !important;
+        }
         .work-collections {
           padding: 30px !important;
           display: flex !important;
           flex-direction: column !important;
           gap: 30px !important;
+        }
+        .work-text {
+          position: static !important;
         }
 
         .work-details {
@@ -245,6 +252,7 @@
         }
         .mobile-menu > ul {
           position: fixed;
+          z-index: 1100;
           top: 0;
           right: -100%;
           background: hsla(196, 100%, 47%, 0.574);
@@ -310,7 +318,6 @@
           padding: 30px 16px !important;
           color: var(--text-col) !important;
           font-size: 16px !important;
-      
 
           & > h2 {
             font-size: 22px !important;
@@ -329,21 +336,21 @@
           padding: 30px 16px !important;
           display: flex !important;
           flex-direction: column !important;
-          gap: 30px !important;
+          gap: 16px !important;
         }
 
-        .work-text > ol {
-          padding-left: 16px;
-          padding-right: 16px;
+        .work-text {
+          position: static !important;
         }
 
         .work-details {
           display: flex;
           flex-direction: column !important;
         }
-        .work-collections > .work-text > h2 {
+        #project > h2 {
           font-size: 24px !important;
-          text-transform: uppercase;
+          text-transform: uppercase !important;
+          padding-inline: 16px !important;
         }
       }
 
@@ -453,10 +460,10 @@
 
       /* section 2 - project area */
       .work-collections {
-        padding: 100px 82px;
+        padding: 20px 82px;
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        gap: 16px;
         letter-spacing: 1.2px;
         line-height: 1.7;
       }
@@ -464,14 +471,22 @@
       /* work text sect */
       .work-collections > .work-text {
         flex: 1;
+        left: 0;
+        position: sticky;
+
+        top: 50px;
+        height: 500px;
+        padding: 20px 10px;
       }
 
-      .work-collections > .work-text > h2 {
+      #project > h2 {
         font-size: 38px;
         font-weight: bolder;
         text-transform: uppercase;
         color: hsl(196, 100%, 47%);
         margin-bottom: 10px;
+        margin-top: 40px;
+        padding-inline: 82px;
       }
 
       .work-collections > .work-text > h4 {
@@ -492,17 +507,18 @@
         flex: 2;
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 30px;
       }
 
       .detail-card {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         padding: 10px 0;
       }
 
       .detail-card > p {
         padding: 10px 0;
         color: var(--heading-col);
+        text-align: start;
       }
 
       .detail-card > h5 > svg {
@@ -694,10 +710,9 @@
     </section>
 
     <section id="project">
+      <h2>Projects</h2>
       <div class="work-collections">
         <div class="work-text">
-          <h2>Projects</h2>
-
           <h4>Web pages i have designed</h4>
 
           <ol>
@@ -722,10 +737,14 @@
                 My Portfolio page
               </h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                at est delectus, quam consectetur molestiae labore. Assumenda,
-                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
-                sapiente facilis reiciendis.
+                Discover my personal portfolio, where I showcase the projects
+                I’ve built during my journey as a full-stack web developer. From
+                static websites to interactive applications, I demonstrate my
+                skills in both front-end and back-end technologies. Explore my
+                work, and feel free to reach out for collaborations or
+                inquiries!
+                <br />The project was made using HTML, CSS, Bootstrap and
+                JavaScript.
               </p>
 
               <a href="./portfolio_Project/index.html"> see portfolio</a>
@@ -746,10 +765,13 @@
                 My Quote Generator page
               </h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                at est delectus, quam consectetur molestiae labore. Assumenda,
-                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
-                sapiente facilis reiciendis.
+                Visit my Quote Generator page, where you can get a random
+                motivational or inspirational quote at the click of a button.
+                This project helped me enhance my skills in JavaScript and API
+                integration while providing users with a fun and meaningful
+                experience.
+                <br />
+                This project was made using HTML, CSS and JavaScript.
               </p>
 
               <a href="./quote_app/index.html"> see quote generator</a>
@@ -765,10 +787,14 @@
                 Result Page
               </h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                at est delectus, quam consectetur molestiae labore. Assumenda,
-                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
-                sapiente facilis reiciendis.
+                On the Result page, users can view the results of their
+                assessments or activities. I developed this page to practice
+                dynamic content rendering and data manipulation with JavaScript.
+                It also includes features like downloading results and tracking
+                progress over time.
+
+                <br />
+                This Project was made using HTML and CSS
               </p>
 
               <a href="./result.html"> see result page</a>
@@ -786,10 +812,13 @@
                 E-Commerce page
               </h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                at est delectus, quam consectetur molestiae labore. Assumenda,
-                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
-                sapiente facilis reiciendis.
+                This E-Commerce page simulates an online shopping experience
+                with product listings, a shopping cart, and checkout
+                functionality. It’s a hands-on project I developed using HTML,
+                CSS, JavaScript, and a back-end service to manage user
+                transactions and product inventories.
+
+                <br />The page was made using HTML, CSS and JavaScript.
               </p>
 
               <a href="./web development/index.html"> see E-commerce page</a>
@@ -805,30 +834,15 @@
                 Form page
               </h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                at est delectus, quam consectetur molestiae labore. Assumenda,
-                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
-                sapiente facilis reiciendis.
+                The Form page is designed for collecting user input with
+                validation and processing. It helped me practice form creation,
+                client-side validation, and user experience improvements. This
+                page is an essential part of user-interaction-heavy websites.
+                <br />
+                This project was made using HTML and CSS.
               </p>
+
               <a href="./form.html"> see form page</a>
-            </div>
-            <div class="detail-card">
-              <h5>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path
-                    d="M184 48l144 0c4.4 0 8 3.6 8 8l0 40L176 96l0-40c0-4.4 3.6-8 8-8zm-56 8l0 40L64 96C28.7 96 0 124.7 0 160l0 96 192 0 128 0 192 0 0-96c0-35.3-28.7-64-64-64l-64 0 0-40c0-30.9-25.1-56-56-56L184 0c-30.9 0-56 25.1-56 56zM512 288l-192 0 0 32c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-32L0 288 0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-128z"
-                  />
-                </svg>
-                My Portfolio page
-              </h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
-                at est delectus, quam consectetur molestiae labore. Assumenda,
-                ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
-                sapiente facilis reiciendis.
-              </p>
-              <a href="./portfolio_Project/index.html"> see portfolio page</a>
             </div>
           </div>
         </div>
@@ -840,7 +854,7 @@
         background-color: hsl(196, 100%, 47%);
         height: 100px;
         padding-top: 50px;
-        padding-bottom: 70px;
+        padding-bottom: 100px;
         text-align: center;
       "
     >
