@@ -48,6 +48,8 @@
         --bg-col: #f2fafb;
 
         --text-col: black;
+        --menu-shadow: rgba(0, 0, 0, 0.5);
+        --link-shadow: rgba(0, 0, 0, 0.2);
         /*  */
       }
 
@@ -55,6 +57,8 @@
       .darkModeMob {
         --bg-col: black;
         --text-col: white;
+        --menu-shadow: rgba(255, 255, 255, 0.5);
+        --link-shadow: rgba(255, 255, 255, 0.2);
       }
 
       /*  body style */
@@ -75,19 +79,18 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background-color: rgb(98, 149, 230);
+        background-color: hsl(196, 100%, 47%);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
         width: 100%;
         height: 100px;
-        padding-left: 82px;
-        padding-right: 82px;
+        padding-inline: 82px;
       }
 
       header > nav > span {
         color: white;
         font-size: 28px;
         font-weight: bold;
-        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+        text-shadow: 0px 0px 10px var(--menu-shadow);
       }
 
       /* toggle button for theme change */
@@ -95,7 +98,7 @@
       .theme-toggle,
       .theme-toggle-m {
         display: inline-block;
-        padding: 8px;
+        padding: 13px;
         border-radius: 50%;
         background-color: var(--bg-col);
         display: flex;
@@ -104,7 +107,7 @@
         align-content: center;
         border: none;
         outline: none;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px var(--menu-shadow);
         z-index: 2;
       }
 
@@ -154,8 +157,7 @@
 
       @media ((width > 758px) and (width < 1300px)) {
         header > nav {
-          padding-left: 30px !important;
-          padding-right: 30px !important;
+          padding-inline: 34px !important;
         }
         .work-collections {
           padding: 30px !important;
@@ -186,8 +188,8 @@
         }
 
         header > nav {
-          padding-left: 20px;
-          padding-right: 20px;
+          padding-inline: 20px;
+
           background-color: var(--bg-col);
           box-shadow: none;
           color: var(--text-col);
@@ -200,54 +202,69 @@
         .mobile-menu {
           /* Your initial styles for the mobile menu */
           position: relative; /* This ensures the element moves with the scroll initially */
-          transition: all 0.3s ease; /* Optional, to add a smooth transition */
+          transition: all 0.1s ease; /* Optional, to add a smooth transition */
         }
 
         .menu > svg {
           fill: var(--text-col);
-          width: 16px;
+          width: 20px;
         }
 
         .links-sect > label > svg {
           fill: var(--text-col);
-          width: 16px;
+          width: 18px;
+        }
+
+        .links-sect > label {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .links-sect > label > svg:hover {
+          fill: red;
         }
 
         .mobile-menu .menu {
           color: var(--text-col);
-          background-color: rgba(98, 149, 230, 0.5);
+          background-color: hsl(196, 100%, 47%);
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 50px;
-          width: 50px;
+          height: 60px;
+          width: 60px;
 
           border-radius: 50%;
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 20px var(--menu-shadow);
         }
         .mobile-menu > ul {
           position: fixed;
           top: 0;
           right: -100%;
-          background: rgba(98, 149, 230, 0.5);
+          background: hsla(196, 100%, 47%, 0.574);
           backdrop-filter: blur(10px);
           height: calc(100vh - 100px);
-          width: 70%;
+          width: 90%;
           flex-direction: column !important;
           align-items: flex-start;
           justify-content: flex-start;
-          transition: right 1s linear;
+          transition: right 0.41s linear;
           padding: 20px;
+          box-shadow: 0 0 20px var(--menu-shadow) inset;
         }
 
         .mobile-menu > ul > li {
           list-style-type: none;
-          padding: 20px;
+
+          width: 100%;
         }
 
         .mobile-menu > ul > li > a {
           text-decoration: none;
           cursor: pointer;
+          padding: 16px 0px;
+          width: 100%;
+          display: block;
 
           color: var(--text-col);
           font-weight: bold;
@@ -257,23 +274,16 @@
           display: block;
         }
 
-        #mark-btn {
+        /* #mark-btn {
           display: block;
         }
 
         #mark-btn:hover {
           color: red;
-        }
+        } */
 
         #chk1:checked ~ .mobile-menu > .links-sect {
           right: 0;
-        }
-
-        .links-sect > label {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
         }
 
         /* hero section */
@@ -287,7 +297,8 @@
           padding: 30px 16px !important;
 
           & > h2 {
-            font-size: 32px !important;
+            font-size: 22px !important;
+            letter-spacing: 1px !important;
           }
 
           & > h4 {
@@ -311,9 +322,35 @@
           display: flex;
           flex-direction: column !important;
         }
+        .work-collections > .work-text > h2 {
+          font-size: 24px !important;
+          text-transform: uppercase;
+        }
       }
 
       /* Hero container */
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-100%); /* Start off-screen to the left */
+          opacity: 0; /* Invisible */
+        }
+        to {
+          transform: translateX(0); /* Move to its original position */
+          opacity: 1; /* Fully visible */
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%); /* Start off-screen to the right */
+          opacity: 0; /* Invisible */
+        }
+        to {
+          transform: translateX(0); /* Move to its original position */
+          opacity: 1; /* Fully visible */
+        }
+      }
+
       .container {
         display: flex;
         flex-direction: row;
@@ -324,6 +361,9 @@
       .container > .img-holder {
         flex: 1;
         width: 100%;
+        opacity: 0; /* Initial state */
+        transform: translateX(-100%); /* Match the animation start */
+        animation: slideInLeft 1.5s ease-out forwards; /* Smooth slide animation */
       }
 
       /* img style */
@@ -337,23 +377,30 @@
       .container > .content-text {
         flex: 1;
         padding: 0 20px 20px 20px;
+        line-height: 1.7;
+        letter-spacing: 1.2px;
+
+        opacity: 0; /* Initial state */
+        transform: translateX(100%); /* Match the animation start */
+        animation: slideInRight 1.5s ease-out forwards; /* Smooth slide animation */
       }
 
       .content-text > h2 {
-        font-size: 43px;
+        font-size: 38px;
         font-weight: bolder;
-        padding-bottom: 30px;
-        color: #484967;
+        margin-bottom: 10px;
+        color: hsl(196, 100%, 47%);
       }
 
       .content-text > h4 {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         font-size: 24px;
+
+        color: #484967;
       }
 
       .content-text > p {
         font-weight: bold;
-        line-height: 1.7;
       }
 
       /* section 2 - project area */
@@ -361,7 +408,9 @@
         padding: 100px 82px;
         display: flex;
         flex-direction: row;
-        gap: 30px;
+        gap: 20px;
+        letter-spacing: 1.2px;
+        line-height: 1.5;
       }
 
       /* work text sect */
@@ -370,21 +419,22 @@
       }
 
       .work-collections > .work-text > h2 {
-        font-size: 55px;
-        font-weight: bold;
-        color: #484967;
-        margin-bottom: 28px;
+        font-size: 38px;
+        font-weight: bolder;
+        color: hsl(196, 100%, 47%);
+        margin-bottom: 10px;
       }
 
       .work-collections > .work-text > h4 {
-        font-size: 24px;
+        font-size: 18px;
         font-weight: bold;
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        color: #484967;
       }
 
       .work-collections > .work-text > ol > li {
-        list-style-type: number;
+        list-style-type: disc;
         padding: 5px 0;
         font-weight: bold;
       }
@@ -394,18 +444,17 @@
         flex: 2;
         display: flex;
         flex-direction: row;
+        gap: 10px;
       }
 
       .detail-card {
-        margin-bottom: 30px;
-      }
-
-      .detail-card {
-        padding-bottom: 18px;
+        margin-bottom: 10px;
+        padding: 10px 0;
       }
 
       .detail-card > p {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        padding: 10px 0;
       }
 
       .detail-card > h5 > svg {
@@ -424,9 +473,18 @@
         text-transform: capitalize;
         font-size: 14px;
         font-weight: 600;
+        background-color: hsla(196, 100%, 47%, 0.579);
+        padding: 10px 16px;
+        color: black;
+        text-decoration: none;
+        border-radius: 3px;
+        margin: 10px 0px;
+        display: inline-block;
       }
-      .detail-card:hover > a {
-        border-bottom: 1px solid var(--text-col);
+      .detail-card > a:hover {
+        background-color: hsl(196, 100%, 47%);
+        box-shadow: 0 0 20px var(--link-shadow);
+        color: white;
       }
 
       .work-collections
@@ -440,7 +498,7 @@
         gap: 4px;
         justify-content: flex-start;
         align-items: center;
-        color: #484967;
+        color: var(--text-col);
         text-transform: uppercase;
       }
 
@@ -453,7 +511,7 @@
       }
       .foot-link > a > svg {
         fill: var(--text-col);
-        width: 16px;
+        width: 20px;
       }
     </style>
   </head>
@@ -564,8 +622,8 @@
         </div>
 
         <div class="content-text">
-          <h2>Adventures of a web developer</h2>
-          <h4>Salaam, and in other words Hello.</h4>
+          <h2>Adventures of a Full-Stack Web developer</h2>
+          <h4>Hello.</h4>
           <p>
             My name is Muhammad Mahmud Yaro, i recently just started learning
             full stack Web Development (currently on the front-end) and truly i
@@ -618,17 +676,7 @@
                 sapiente facilis reiciendis.
               </p>
 
-              <a
-                href="./portfolio_Project/index.html"
-                style="
-                  color: var(--text-col);
-                  text-decoration: none;
-
-                  padding-bottom: 10px;
-                "
-              >
-                see portfolio</a
-              >
+              <a href="./portfolio_Project/index.html"> see portfolio</a>
             </div>
 
             <div class="detail-card">
@@ -648,17 +696,7 @@
                 sapiente facilis reiciendis.
               </p>
 
-              <a
-                href="./quote_app/index.html"
-                style="
-                  color: var(--text-col);
-                  text-decoration: none;
-
-                  padding-bottom: 10px;
-                "
-              >
-                see quote app</a
-              >
+              <a href="./quote_app/index.html"> see quote app</a>
             </div>
             <div class="detail-card">
               <h5>
@@ -677,17 +715,7 @@
                 sapiente facilis reiciendis.
               </p>
 
-              <a
-                href="./result.html"
-                style="
-                  color: var(--text-col);
-                  text-decoration: none;
-
-                  padding-bottom: 10px;
-                "
-              >
-                see result page</a
-              >
+              <a href="./result.html"> see result page</a>
             </div>
           </div>
           <div class="work-detail-card">
@@ -708,17 +736,7 @@
                 sapiente facilis reiciendis.
               </p>
 
-              <a
-                href="./web development/index.html"
-                style="
-                  color: var(--text-col);
-                  text-decoration: none;
-
-                  padding-bottom: 10px;
-                "
-              >
-                see E-commerce page</a
-              >
+              <a href="./web development/index.html"> see E-commerce page</a>
             </div>
             <div class="detail-card">
               <h5>
@@ -736,17 +754,7 @@
                 ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
                 sapiente facilis reiciendis.
               </p>
-              <a
-                href="./form.html"
-                style="
-                  color: var(--text-col);
-                  text-decoration: none;
-
-                  padding-bottom: 10px;
-                "
-              >
-                see form page</a
-              >
+              <a href="./form.html"> see form page</a>
             </div>
             <div class="detail-card">
               <h5>
@@ -764,17 +772,7 @@
                 ab maxime. Sit fuga maiores nihil porro eveniet natus, similique
                 sapiente facilis reiciendis.
               </p>
-              <a
-                href="./portfolio_Project/index.html"
-                style="
-                  color: var(--text-col);
-                  text-decoration: none;
-
-                  padding-bottom: 10px;
-                "
-              >
-                see portfolio page</a
-              >
+              <a href="./portfolio_Project/index.html"> see portfolio page</a>
             </div>
           </div>
         </div>
@@ -783,7 +781,7 @@
 
     <footer
       style="
-        background-color: rgb(98, 149, 230);
+        background-color: hsl(196, 100%, 47%);
         height: 100px;
         padding-top: 50px;
         padding-bottom: 70px;
