@@ -50,6 +50,9 @@
         --text-col: black;
         --menu-shadow: rgba(0, 0, 0, 0.5);
         --link-shadow: rgba(0, 0, 0, 0.2);
+        --heading-col: #484967;
+        --link-col: hsla(196, 100%, 47%, 0.579);
+        --link-col-hover: hsl(196, 100%, 47%);
         /*  */
       }
 
@@ -59,6 +62,9 @@
         --text-col: white;
         --menu-shadow: rgba(255, 255, 255, 0.5);
         --link-shadow: rgba(255, 255, 255, 0.2);
+        --heading-col: white;
+        --link-col-hover: hsla(196, 100%, 47%, 0.579);
+        --link-col: hsl(196, 100%, 47%);
       }
 
       /*  body style */
@@ -288,21 +294,34 @@
 
         /* hero section */
         .container {
-          display: flex;
           flex-direction: column !important;
-          padding: 30px 0 !important;
+        }
+
+        .overlay {
+          position: static !important; /* Remove absolute positioning */
+          background: none !important; /* Remove the overlay background */
+          color: #000 !important;
         }
 
         .content-text {
+          width: 100% !important; /* Allow text to take full width */
+
+          text-align: left !important;
           padding: 30px 16px !important;
+          color: var(--text-col) !important;
+          font-size: 16px !important;
+      
 
           & > h2 {
             font-size: 22px !important;
-            letter-spacing: 1px !important;
           }
 
-          & > h4 {
+          & > h3 {
             font-size: 20px !important;
+          }
+
+          & > .hero-cta {
+            display: none;
           }
         }
 
@@ -342,46 +361,55 @@
 
       @keyframes slideInRight {
         from {
-          transform: translateX(100%); /* Start off-screen to the right */
+          transform: translateY(100%); /* Start off-screen to the right */
           opacity: 0; /* Invisible */
         }
         to {
-          transform: translateX(0); /* Move to its original position */
+          transform: translateY(0); /* Move to its original position */
           opacity: 1; /* Fully visible */
         }
       }
 
       .container {
-        display: flex;
-        flex-direction: row;
-        padding: 70px 0;
+        width: 100%; /* Take up the full width of the screen */
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
       }
 
       /* img container */
-      .container > .img-holder {
-        flex: 1;
+      .container > img {
         width: 100%;
-        opacity: 0; /* Initial state */
-        transform: translateX(-100%); /* Match the animation start */
-        animation: slideInLeft 1.5s ease-out forwards; /* Smooth slide animation */
-      }
-
-      /* img style */
-      .container > .img-holder > img {
-        max-width: 100%;
-        height: 100%;
+        height: auto;
+        display: block;
         object-fit: cover;
       }
 
+      /* overlay */
+      .overlay {
+        position: absolute; /* Positioned over the image */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
       /* hero text container */
-      .container > .content-text {
-        flex: 1;
-        padding: 0 20px 20px 20px;
-        line-height: 1.7;
+      .content-text {
+        max-width: 650px; /* Limits the width of the text */
+        width: 90%; /* Ensures it adjusts for smaller screens */
+        color: #fff; /* White text for contrast */
+
+        line-height: 1.5;
         letter-spacing: 1.2px;
 
         opacity: 0; /* Initial state */
-        transform: translateX(100%); /* Match the animation start */
+        transform: translateY(100%); /* Match the animation start */
         animation: slideInRight 1.5s ease-out forwards; /* Smooth slide animation */
       }
 
@@ -390,17 +418,37 @@
         font-weight: bolder;
         margin-bottom: 10px;
         color: hsl(196, 100%, 47%);
+        line-height: normal;
       }
 
-      .content-text > h4 {
+      .content-text > h3 {
         margin-bottom: 10px;
         font-size: 24px;
 
-        color: #484967;
+        color: white;
       }
 
       .content-text > p {
         font-weight: bold;
+        font-size: 17px;
+        margin-bottom: 30px;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        padding: 10px 30px;
+        color: white;
+        text-transform: capitalize;
+        background-color: hsl(196, 100%, 47%);
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        letter-spacing: 1.2px;
+        text-decoration: none;
+      }
+      .hero-cta:hover {
+        background-color: hsla(196, 100%, 47%, 0.849);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
       }
 
       /* section 2 - project area */
@@ -409,8 +457,8 @@
         display: flex;
         flex-direction: row;
         gap: 20px;
-        letter-spacing: 1.3px;
-        line-height: 1.5;
+        letter-spacing: 1.2px;
+        line-height: 1.7;
       }
 
       /* work text sect */
@@ -421,6 +469,7 @@
       .work-collections > .work-text > h2 {
         font-size: 38px;
         font-weight: bolder;
+        text-transform: uppercase;
         color: hsl(196, 100%, 47%);
         margin-bottom: 10px;
       }
@@ -428,9 +477,8 @@
       .work-collections > .work-text > h4 {
         font-size: 18px;
         font-weight: bold;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        color: #484967;
+        text-transform: capitalize;
+        color: var(--heading-col);
       }
 
       .work-collections > .work-text > ol > li {
@@ -448,13 +496,13 @@
       }
 
       .detail-card {
-        margin-bottom: 10px;
+        margin-bottom: 40px;
         padding: 10px 0;
       }
 
       .detail-card > p {
-        margin-bottom: 10px;
         padding: 10px 0;
+        color: var(--heading-col);
       }
 
       .detail-card > h5 > svg {
@@ -473,7 +521,7 @@
         text-transform: capitalize;
         font-size: 14px;
         font-weight: 600;
-        background-color: hsla(196, 100%, 47%, 0.579);
+        background-color: var(--link-col);
         padding: 10px 16px;
         color: black;
         text-decoration: none;
@@ -482,7 +530,7 @@
         display: inline-block;
       }
       .detail-card > a:hover {
-        background-color: hsl(196, 100%, 47%);
+        background-color: var(--link-col-hover);
         box-shadow: 0 0 20px var(--link-shadow);
         color: white;
       }
@@ -493,13 +541,12 @@
         > .detail-card
         > h5 {
         font-size: 18px;
-        margin-bottom: 15px;
         display: flex;
         gap: 4px;
         justify-content: flex-start;
         align-items: center;
         color: var(--text-col);
-        text-transform: uppercase;
+        text-transform: capitalize;
       }
 
       .foot-link {
@@ -617,31 +664,36 @@
     </header>
     <section>
       <div class="container">
-        <div class="img-holder">
-          <img src="./pro-pic.jpg" alt="my profile picture" />
-        </div>
+        <img src="./pro-pic.jpg" alt="my profile picture" />
 
-        <div class="content-text">
-          <h2>Adventures of a Full-Stack Web developer</h2>
-          <h4>Hello.</h4>
-          <p>
-            My name is Muhammad Mahmud Yaro, i recently just started learning
-            full stack Web Development (currently on the front-end) and truly i
-            must say that embarking on my web development journey has been
-            nothing short of exhilarating! Every line of code brings new
-            challenges and endless opportunities to create something impactful.
-            From learning the basics to building dynamic, interactive web
-            applications, I've gained skills that make each project more
-            rewarding than the last. Watching ideas transform from concepts to
-            fully functional platforms has been an incredible experience,
-            fueling my passion to innovate and solve real-world problems. I
-            can't wait to see where this journey takes me next!"
-          </p>
+        <div class="overlay">
+          <div class="content-text">
+            <h2>Adventures of a Full-Stack Web developer</h2>
+
+            <p>
+              Hello, my name is Muhammad Mahmud Yaro. I recently just started
+              learning full-stack Web Development (currently on the front-end),
+              and truly, I must say that embarking on my web development journey
+              has been nothing short of exhilarating! Every line of code brings
+              new challenges and endless opportunities to create something
+              impactful. From learning the basics to building dynamic,
+              interactive web applications, I've gained skills that make each
+              project more rewarding than the last. Watching ideas transform
+              from concepts to fully functional platforms has been an incredible
+              experience, fueling my passion to innovate and solve real-world
+              problems. I can't wait to see where this journey takes me next!.
+            </p>
+            <a class="hero-cta" href="#project">see projects</a>
+          </div>
         </div>
       </div>
+
+      <!--  -->
+
+      <!--  -->
     </section>
 
-    <section>
+    <section id="project">
       <div class="work-collections">
         <div class="work-text">
           <h2>Projects</h2>
@@ -681,7 +733,11 @@
 
             <div class="detail-card">
               <h5>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <svg
+                  style="width: 14px"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                >
                   <!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                   <path
                     d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"
@@ -696,7 +752,7 @@
                 sapiente facilis reiciendis.
               </p>
 
-              <a href="./quote_app/index.html"> see quote app</a>
+              <a href="./quote_app/index.html"> see quote generator</a>
             </div>
             <div class="detail-card">
               <h5>
