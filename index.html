@@ -22,7 +22,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>My Portfolio</title>
 
     <link
       rel="stylesheet"
@@ -70,13 +70,11 @@
         --link-col: hsla(196, 100%, 47%, 0.579);
         --link-col-hover: hsl(196, 100%, 47%);
 
-        --heading-font-size: 38px;
         /*  */
       }
 
       .darkmode,
       .darkModeMob {
-        --heading-font-size: 38px;
         --bg-col: black;
         --text-col: white;
         --menu-shadow: rgba(255, 255, 255, 0.5);
@@ -266,6 +264,24 @@
         #skill-mob-show {
           display: none !important;
         }
+
+        /* map */
+
+        .map_container {
+          width: 100% !important;
+
+          padding: 0 30px 50px 30px !important;
+
+          & > iframe {
+            width: 100%;
+            height: 500px;
+          }
+        }
+        .map_container > h3 {
+          margin-block: 30px;
+          font-size: 24px !important;
+        }
+        /*  */
 
         #form-sect {
           padding-inline: 30px !important ;
@@ -495,6 +511,26 @@
           margin-top: 30px !important;
         }
         /*  */
+
+        /* map */
+
+        .map_container {
+          width: 100% !important;
+
+          padding: 0 16px 30px 16px !important;
+
+          & > iframe {
+            width: 100%;
+            height: 500px;
+          }
+        }
+        .map_container > h3 {
+          margin-block: 30px;
+          font-size: 24px !important;
+        }
+        /*  */
+
+        /*  */
         /* form  */
 
         #form-sect {
@@ -572,8 +608,6 @@
 
       /* hero text container */
       .content-text {
-        line-height: 1.5;
-        letter-spacing: 1.2px;
         padding-inline: 30px;
 
         opacity: 0; /* Initial state */
@@ -582,10 +616,11 @@
       }
 
       .content-text > h2 {
-        font-size: var(--heading-font-size);
+        font-size: 38px;
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 10px;
+        text-align: center;
         color: #00b0f0;
       }
 
@@ -597,9 +632,10 @@
       }
 
       .content-text > p {
-        font-weight: bold;
-        font-size: 17px;
+        font-size: 16px;
         margin-bottom: 10px;
+        line-height: 1.7 !important;
+        letter-spacing: 1.5px !important;
       }
 
       .hero-cta {
@@ -681,7 +717,7 @@
         margin-block: 100px;
       }
       #project > h2 {
-        font-size: var(--heading-font-size);
+        font-size: 38px;
         font-weight: bolder;
         text-transform: uppercase;
         color: hsl(196, 100%, 47%);
@@ -739,13 +775,21 @@
         font-size: 14px;
         font-weight: 600;
         background-color: var(--link-col);
-        padding: 10px 16px;
+        padding-block: 8px;
         color: black;
         text-decoration: none;
         border-radius: 3px;
         margin: 10px 0px;
         display: inline-block;
+        width: 100%;
+        text-align: center;
       }
+
+      /* .detail-card:last-child {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+      } */
       .detail-card > a:hover {
         background-color: var(--link-col-hover);
         box-shadow: 0 0 20px var(--link-shadow);
@@ -775,7 +819,7 @@
       }
       .academics > h2 {
         color: hsl(196, 100%, 47%);
-        font-size: var(--heading-font-size);
+        font-size: 38px;
         font-weight: bold;
         text-transform: uppercase;
       }
@@ -867,7 +911,7 @@
 
       .skills > h3 {
         margin-block: 30px;
-        font-size: var(--heading-font-size);
+        font-size: 38px;
         font-weight: bold;
         text-transform: uppercase !important;
         color: hsl(196, 100%, 47%);
@@ -922,10 +966,36 @@
 
       /*  */
 
+      /* !map */
+
+      .map_container {
+        width: 100%;
+
+        padding: 0 50px 50px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        & > iframe {
+          width: 100%;
+          height: 500px;
+        }
+      }
+      .map_container > h3 {
+        margin-block: 30px;
+        font-size: 38px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: hsl(196, 100%, 47%);
+        text-transform: capitalize;
+      }
+      /*  */
+
       /* form */
 
       .col > h2 {
-        font-size: var(--heading-font-size) !important;
+        font-size: 38px;
       }
 
       .mb-4 > input,
@@ -976,8 +1046,9 @@
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#academics">Academics</a></li>
-          <li><a href="#skills">Skill sets</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#project">Project</a></li>
+          <li><a href="#form-sect">Contact</a></li>
           <button class="theme-toggle" aria-label="Toggle theme">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1063,8 +1134,9 @@
             </label>
             <li><a href="#">Home</a></li>
             <li><a href="#academics">Academics</a></li>
-            <li><a href="#skills">Skill sets</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#project">Project</a></li>
+            <li><a href="#form-sect">Contact</a></li>
           </ul>
         </div>
       </nav>
@@ -1077,24 +1149,33 @@
         </div>
 
         <div class="content-text">
-          <h2>Adventures of a Full-Stack Web developer</h2>
+          <h2>Adventures of a Full-Stack developer</h2>
 
           <p>
-            Hello, my name is Muhammad Mahmud Yaro. I recently just started
-            learning full-stack Web Development (currently on the front-end),
-            and truly, I must say that embarking on my web development journey
-            has been nothing short of exhilarating! Every line of code brings
-            new challenges and endless opportunities to create something
-            impactful. <br />From learning the basics to building dynamic,
-            interactive web applications, I've gained skills that make each
-            project more rewarding than the last. Watching ideas transform from
-            concepts to fully functional platforms has been an incredible
-            experience, fueling my passion to innovate and solve real-world
-            problems. I can't wait to see where this journey takes me next!.
+            Hello, my name is Muhammad Mahmud Yaro. <br />
+            My journey into web development began in 2019 when I received a
+            UNESCO Scholarship facilitated by McAnderson Institute of
+            Technology. Starting with HTML, CSS, and Bootstrap, I discovered how
+            simple lines of code could transform static designs into functional
+            interfaces. But beyond the technical skills, this experience
+            awakened a realization—technology is more than just code; it’s a
+            tool for impact.<br />
+            Recently, I completed a Full Stack Web Development course at
+            Bizmarrow Technologies, Abuja. This experience was transformative,
+            sharpening my problem-solving skills and teaching me to see
+            challenges as opportunities for growth. <br />
+            This journey has also shaped my perspective on the power of
+            technology. I don’t just see it as a career path—I see it as a means
+            to build solutions that empower communities and address Africa’s
+            unique challenges. Because developing Africa starts with us, and
+            with every line of code, I aim to play my part. <br />
+            Thank you for stopping by. I look forward to sharing my work,
+            collaborating, and growing in this dynamic field!
           </p>
+
           <div class="hero-cta">
-            <a class="hero-cta-cv" href="#project">Dowload CV</a>
             <a class="hero-cta-prj" href="#project">see project</a>
+            <a class="hero-cta-cv" href="#form-sect">Contact Me</a>
           </div>
         </div>
       </div>
@@ -1407,6 +1488,45 @@
               </svg>
             </div>
             <div class="detail-content">
+              <h3>Design Officer (Intern)</h3>
+              <h6 style="margin-top: 10px">Jam and Bay Furnitures</h6>
+              <p
+                style="
+                  line-height: 1.5;
+                  letter-spacing: 1.5px;
+                  font-weight: bold;
+                  margin-block: 10px;
+                "
+              >
+                I worked as an intern with the 2D and 3D design team, where I
+                created detailed drawings for various job assignments received
+                during that period. Leveraging my training in 2D and 3D design,
+                I produced modern, detail-oriented designs for kitchen cabinets,
+                countertops, TV units, wardrobes, shelves, and shoe racks.
+                Later, I joined the quality assurance team, where I focused on
+                ensuring that all furniture met high standards of quality,
+                precision, and craftsmanship."
+              </p>
+              <span>March 2021 - June 2021</span>
+            </div>
+          </div>
+          <!--  -->
+
+          <div class="education-detail">
+            <div class="detail-number">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="var(--text-col)"
+              >
+                <path
+                  d="M20 6h-3V4c0-1.103-.897-2-2-2H9c-1.103 0-2 .897-2 2v2H4c-1.103 0-2 .897-2 2v4h5v-2h2v2h6v-2h2v2h5V8c0-1.103-.897-2-2-2zM9 4h6v2H9V4zm8 11h-2v-2H9v2H7v-2H2v6c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-6h-5v2z"
+                />
+              </svg>
+            </div>
+            <div class="detail-content">
               <h3>Administration Officer</h3>
               <h6 style="margin-top: 10px">Work Ready Nigeria</h6>
               <p
@@ -1661,6 +1781,21 @@
 
     <!--  -->
 
+    <!--! LOCATION -->
+
+    <div class="map_container">
+      <h3>LOCATE ME</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.1399810086455!2d7.065179068470572!3d8.959246670433409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e87dce0c6d0f1%3A0x4e46709a34e22470!2sPhase%203%20one%20Nigeria%2C%20Gwagwalada%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1738821501586!5m2!1sen!2sng"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
     <!-- ! FORM SECTION -->
 
     <section style="padding: 50px" id="form-sect">
@@ -1688,11 +1823,15 @@
             </div>
           </div>
           <div class="col" id="form-box">
-            <form>
+            <form
+              action="https://formsubmit.co/39427eecc844ce26e981c8cef1479c03"
+              method="POST"
+            >
               <div class="mb-4">
-                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <label for="exampleInputName" class="form-label">Name</label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Full Name"
                   class="form-control border-0"
                   id="exampleInputEmail1"
@@ -1700,11 +1839,12 @@
                 />
               </div>
               <div class="mb-4">
-                <label for="exampleInputPassword1" class="form-label"
+                <label for="exampleInputEmail1" class="form-label"
                   >Email address</label
                 >
                 <input
                   type="email"
+                  name="email"
                   placeholder="example@email.com"
                   class="form-control border-0"
                   id="exampleInputPassword1"
@@ -1712,15 +1852,37 @@
               </div>
 
               <div class="mb-4">
-                <label for="floatingTextarea" class="form-label">Comment</label>
+                <label for="exampleInputSubject1" class="form-label"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  class="form-control border-0"
+                  id="exampleInputPassword1"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label for="floatingTextarea" class="form-label">Message</label>
 
                 <textarea
                   class="form-contro border-0"
-                  placeholder="Leave a comment here"
+                  name="message"
+                  placeholder="Leave a message here"
                   id="floatingTextarea"
                   style="width: 100%; height: 150px; min-height: 100px"
                 ></textarea>
               </div>
+
+              <input
+                type="hidden"
+                name="_autoresponse"
+                value="Thank you for reaching out, you will recieve a response soon."
+              />
+
+              <!-- <input type="hidden" name="_captcha" value="false" /> -->
 
               <button
                 type="submit"
